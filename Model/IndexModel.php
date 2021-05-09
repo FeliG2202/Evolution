@@ -16,6 +16,7 @@ class IndexModel {
 			case 'Perfil':
 			case 'Dashboard':
 			case 'Salir':
+			case 'Login':
 			$modulo = "View/Modules/" . ($enlace) . ".php";
 			break;
 			
