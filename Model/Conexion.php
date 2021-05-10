@@ -3,30 +3,25 @@
 class Conexion {
 	
 	private $host = "localhost";
-	private $db_name = "";
+	private $db_name = "evolution";
 	private $user = "root";
 	private $pass = "";
+	private $options = [
+		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+		PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+	];
 
-	private static $conexion = null;
-	private $conn;
-
-	private function __construct() {
-		try {
-			$this->conn = new PDO("mysql:host=$this->host;dbname=$this->db_name", $this->user, $this->pass);
-		} catch (PDOException $e) {
-			echo "Error: " . $e;
-		}
-	}
-
-	public static function getInstance() {
-		if(!self::$conexion) {
-			self::$conexion = new Conexion();
-		}
-		return self::$conexion;
-	}
-
-	public function getPrepareStatement($sql) {
-		return $this->conn->prepare($sql);
-	}
+	private $conexion = null;
 	
+	public function __construct() {
+		try {
+			$this->conexion = new PDO("mysql:host=$this->host;evolution=$this->db_name;charset=utf8", $this->user, $this->pass, $this->options);
+		} catch (PDOException $e) {
+			echo ("Error: " . $e);
+		}
+	}
+
+	public function getPrepare($sql) {
+		return $this->conexion->prepare($sql);
+	}
 }

@@ -1,7 +1,4 @@
-<?php 
-	if (!$_SESSION['user']) {
-		header("location: Dashboard");
-	}
-?>
-
+<?php if (@!$_SESSION['user_session']) {
+	$indexController->getRequest("Home");
+} ?>
 <h1>Perfil</h1>

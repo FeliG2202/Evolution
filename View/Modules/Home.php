@@ -1,2 +1,1 @@
-<?php $_SESSION['user'] = true; ?>
-<h1>efe</h1>
+<h1>Home</h1>

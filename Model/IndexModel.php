@@ -8,15 +8,14 @@ class IndexModel {
 
 	public function actionPerformed($enlace, $modulo = null) {
 		switch ($enlace) {
-			case "Index":
 			case 'Home':
-			$modulo = "View/Modules/Home.php";
-			break;
-
 			case 'Perfil':
 			case 'Dashboard':
 			case 'Salir':
 			case 'Login':
+			case 'SignUp':
+			case 'Infor':
+			case 'Ayuda':
 			$modulo = "View/Modules/" . ($enlace) . ".php";
 			break;
 			

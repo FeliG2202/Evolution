@@ -17,10 +17,13 @@ class IndexController {
 		if (isset($_GET['action'])) {
 			$enlace = $_GET['action'];
 		} else {
-			$enlace = "Index";
+			$enlace = @$_SESSION['user_session'] ? "Dashboard" : "Home";
 		}
-		$modulo = $this->indexModel->actionPerformed($enlace);
-		include($modulo);
+		return $this->indexModel->actionPerformed($enlace);
+	}
+
+	public function getRequest($url) {
+		echo('<script type="text/javascript">window.location.href = "' . ($url) . '";</script>');
 	}
 
 }

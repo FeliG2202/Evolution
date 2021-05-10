@@ -20,7 +20,7 @@
 		<div id="layoutSidenav_content">
 			<main>
 				<div class="container-fluid">
-					<?php $indexController->actionListener(); ?>
+					<?php include_once($indexController->actionListener()); ?>
 				</div>
 			</main>
 
