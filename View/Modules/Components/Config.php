@@ -45,6 +45,24 @@ $sidebar_modulos = [
         "modulo_status" => "online/offline",
         "modulo_permissions" => [1, 2, 3],
         "modulo_visibility" => "NO"
+    ], [
+        "idModulo" => 6, 
+        "modulo_nombre" => "Ingresar", 
+        "modulo_icon" => "fa fa-home", 
+        "modulo_type" => "link", 
+        "modulo_link" => "Login",
+        "modulo_status" => "offline",
+        "modulo_permissions" => [1, 2, 3],
+        "modulo_visibility" => "SI"
+    ], [
+        "idModulo" => 7, 
+        "modulo_nombre" => "Salir", 
+        "modulo_icon" => "fa fa-home", 
+        "modulo_type" => "link", 
+        "modulo_link" => "Salir",
+        "modulo_status" => "online",
+        "modulo_permissions" => [1, 2, 3],
+        "modulo_visibility" => "SI"
     ]
 ]; 
 
@@ -121,5 +139,37 @@ $sidebar_sub_modulos = [
         "sub_modulo_status" => "online",
         "sub_modulo_permissions" => [1],
         "idModulo" => 2
+    ], [
+        "idSubModulo" => 10, 
+        "sub_modulo_nombre" => "Ficha antropometrica", 
+        "sub_modulo_icon" => "fa fa-home", 
+        "sub_modulo_link" => "FichaAntropometrica",
+        "sub_modulo_status" => "online",
+        "sub_modulo_permissions" => [2, 3],
+        "idModulo" => 2
+    ], [
+        "idSubModulo" => 11, 
+        "sub_modulo_nombre" => "Avances", 
+        "sub_modulo_icon" => "fa fa-home", 
+        "sub_modulo_link" => "EvolucionMes",
+        "sub_modulo_status" => "online",
+        "sub_modulo_permissions" => [2, 3],
+        "idModulo" => 2
+    ], [
+        "idSubModulo" => 12, 
+        "sub_modulo_nombre" => "Ejercicios diarios", 
+        "sub_modulo_icon" => "fa fa-home", 
+        "sub_modulo_link" => "EjerciciosDiarios",
+        "sub_modulo_status" => "online",
+        "sub_modulo_permissions" => [2, 3],
+        "idModulo" => 2
     ]
 ];
+
+usort($sidebar_modulos, function(array $elem1, $elem2) {
+    return $elem1['modulo_nombre'] <=> $elem2['modulo_nombre'];
+});
+
+usort($sidebar_sub_modulos, function(array $elem1, $elem2) {
+    return $elem1['sub_modulo_nombre'] <=> $elem2['sub_modulo_nombre'];
+});
