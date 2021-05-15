@@ -3,7 +3,7 @@ $sidebar_modulos = [
     [
         "idModulo" => 1, 
         "modulo_nombre" => "Home", 
-        "modulo_icon" => "fa fa-home text-danger", 
+        "modulo_icon" => "fa fa-home text-warning", 
         "modulo_type" => "link",
         "modulo_link" => "Home",
         "modulo_status" => "offline",
@@ -12,7 +12,7 @@ $sidebar_modulos = [
     ], [
         "idModulo" => 2, 
         "modulo_nombre" => "Ficha", 
-        "modulo_icon" => "fa fa-home text-primary", 
+        "modulo_icon" => "fas fa-folder text-warning", 
         "modulo_type" => "item", 
         "modulo_link" => "#",
         "modulo_status" => "online",
@@ -30,7 +30,7 @@ $sidebar_modulos = [
     ], [
         "idModulo" => 4, 
         "modulo_nombre" => "Soporte", 
-        "modulo_icon" => "fa fa-home", 
+        "modulo_icon" => "fas fa-universal-access text-warning", 
         "modulo_type" => "item", 
         "modulo_link" => "#",
         "modulo_status" => "online/offline",
@@ -48,7 +48,7 @@ $sidebar_modulos = [
     ], [
         "idModulo" => 6, 
         "modulo_nombre" => "Ingresar", 
-        "modulo_icon" => "fa fa-home", 
+        "modulo_icon" => "fas fa-sign-in-alt text-warning", 
         "modulo_type" => "link", 
         "modulo_link" => "Login",
         "modulo_status" => "offline",
@@ -57,7 +57,7 @@ $sidebar_modulos = [
     ], [
         "idModulo" => 7, 
         "modulo_nombre" => "Salir", 
-        "modulo_icon" => "fa fa-home", 
+        "modulo_icon" => "fas fa-sign-out-alt text-warning", 
         "modulo_type" => "link", 
         "modulo_link" => "Salir",
         "modulo_status" => "online",
@@ -86,7 +86,7 @@ $sidebar_sub_modulos = [
     ], [
         "idSubModulo" => 3, 
         "sub_modulo_nombre" => "Información", 
-        "sub_modulo_icon" => "fa fa-home", 
+        "sub_modulo_icon" => "fas fa-info text-warning", 
         "sub_modulo_link" => "Infor",
         "sub_modulo_status" => "online/offline",
         "sub_modulo_permissions" => [1, 2, 3],
@@ -94,7 +94,7 @@ $sidebar_sub_modulos = [
     ], [
         "idSubModulo" => 4, 
         "sub_modulo_nombre" => "Ayuda", 
-        "sub_modulo_icon" => "fa fa-home", 
+        "sub_modulo_icon" => "fas fa-question text-warning", 
         "sub_modulo_link" => "Ayuda",
         "sub_modulo_status" => "online/offline",
         "sub_modulo_permissions" => [1, 2, 3],
@@ -142,7 +142,7 @@ $sidebar_sub_modulos = [
     ], [
         "idSubModulo" => 10, 
         "sub_modulo_nombre" => "Ficha antropometrica", 
-        "sub_modulo_icon" => "fa fa-home", 
+        "sub_modulo_icon" => "fa fa-file text-warning", 
         "sub_modulo_link" => "FichaAntropometrica",
         "sub_modulo_status" => "online",
         "sub_modulo_permissions" => [2, 3],
@@ -150,7 +150,7 @@ $sidebar_sub_modulos = [
     ], [
         "idSubModulo" => 11, 
         "sub_modulo_nombre" => "Avances", 
-        "sub_modulo_icon" => "fa fa-home", 
+        "sub_modulo_icon" => "fas fa-chart-line text-warning", 
         "sub_modulo_link" => "EvolucionMes",
         "sub_modulo_status" => "online",
         "sub_modulo_permissions" => [2, 3],
@@ -158,7 +158,7 @@ $sidebar_sub_modulos = [
     ], [
         "idSubModulo" => 12, 
         "sub_modulo_nombre" => "Ejercicios diarios", 
-        "sub_modulo_icon" => "fa fa-home", 
+        "sub_modulo_icon" => "fas fa-walking text-warning", 
         "sub_modulo_link" => "EjerciciosDiarios",
         "sub_modulo_status" => "online",
         "sub_modulo_permissions" => [2, 3],
