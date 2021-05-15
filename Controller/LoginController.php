@@ -37,8 +37,6 @@ class LoginController {
 	private function loginSession(LoginClass $loginClass, $request = null) {
 		$data = $this->loginModel->loginSessionDB($loginClass);
 
-		var_dump($data);
-
 		if ($data != null) {
 			$_SESSION['user_session'] = true;
 			$_SESSION['idUsuarios'] = $data['idUsuarios'];

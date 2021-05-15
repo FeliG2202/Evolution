@@ -10,15 +10,11 @@ class IndexController {
 	}
 
 	public function cargarTemplate() {
-		include("View/Template.php");
+		return "View/Template.php";
 	}
 
 	public function actionListener() {
-		if (isset($_GET['action'])) {
-			$enlace = $_GET['action'];
-		} else {
-			$enlace = @$_SESSION['user_session'] ? "Dashboard" : "Home";
-		}
+		$enlace = isset($_GET['action']) ? $_GET['action'] : (@$_SESSION['user_session'] ? "Dashboard" : "Home");
 		return $this->indexModel->actionPerformed($enlace);
 	}
 

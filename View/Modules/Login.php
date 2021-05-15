@@ -7,23 +7,25 @@ if (@$_SESSION['user_session']) {
 }
 ?>
 
-<div class="container">
-  <div class="col-lg-5 mx-auto mt-5 mb-5 p-4 bg-white">
+  <div class="col-lg-5 mx-auto mt-5 mb-5 p-4 bg-white rounded shadow-sm">
+    <div class="w-100 text-center">
+      <img src="View/Assets/Img/logos/logoEvolutionBackground.png" class="img-fluid w-25 h-25">
+    </div>
     <form method="POST">
       <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="usuarios_email_l" placeholder="Ingrese su email" class="form-control">
+        <label>Correo</label>
+        <input type="email" name="usuarios_email_l" placeholder="Ingrese su Correo" class="form-control">
       </div>
 
       <div class="form-group">
-        <label>Password</label>
-        <input type="password" name="usuarios_password_l" placeholder="Ingrese su password" class="form-control">
+        <label>Contraseña</label>
+        <input type="password" name="usuarios_password_l" placeholder="Ingrese su Contraseña" class="form-control">
       </div>
 
       <button type="submit" class="btn btn-success">Ingresar</button>
     </form>
   </div>
-</div>
+
 
 <?php if ($_SERVER['REQUEST_METHOD'] === "POST") {
   $request = $controller->validateLogin();

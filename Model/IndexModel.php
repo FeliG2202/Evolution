@@ -6,7 +6,10 @@ class IndexModel {
 		
 	}
 
-	public function actionPerformed($enlace, $modulo = null) {
+	//this method is used to charge all views
+	public function actionPerformed($enlace) {
+		$modulo = null;
+
 		switch ($enlace) {
 			case 'Home':
 			case 'Perfil':
@@ -16,6 +19,10 @@ class IndexModel {
 			case 'SignUp':
 			case 'Infor':
 			case 'Ayuda':
+			case 'EvolucionMes':
+			case 'EjerciciosDiarios':
+			case 'FichaAntropometrica':
+			case 'GestionRol';
 			$modulo = "View/Modules/" . ($enlace) . ".php";
 			break;
 			
