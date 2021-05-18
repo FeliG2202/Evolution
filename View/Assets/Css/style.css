@@ -1,3 +1,8 @@
+.disabled-object { display: none; }
+
+@media screen and (max-width: 767px) { .disabled-object-xl { display: none; } }
+@media screen and (min-width: 768px) { .disabled-object-sm { display: none; } }
+
 .img {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../Img/backgrounds/backgroundGeneral.png');
   background-size: cover;
@@ -14,7 +19,10 @@
 	background-color: #06BFBF;
 }
 
-.vl {
-  border-left: 1px solid Gray;
-  height: 150px;
+.vl{ 
+  
+    border:         none;
+    border-left:    1px solid hsla(200, 10%, 50%,100);
+    height:         100px;
+    width:          1px;       
 }
