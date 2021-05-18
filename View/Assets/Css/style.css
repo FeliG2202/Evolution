@@ -13,3 +13,8 @@
 .bg-turquoise {
 	background-color: #06BFBF;
 }
+
+.vl {
+  border-left: 1px solid Gray;
+  height: 150px;
+}

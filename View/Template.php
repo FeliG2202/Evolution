@@ -10,7 +10,7 @@
 	<?php include("ReferenceLinks/LinksCss.php"); ?>
 
 </head>
-<body class="<?php echo($_GET['action'] === "Dashboard" ? "img" : "bg-light"); ?>">
+<body class="<?php echo(isset($_GET['action']) ? ($_GET['action'] === "Dashboard" ? 'img' : 'bg-light') : ''); ?>">
 	<?php include_once("Modules/Components/Navbar.php"); ?>
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
