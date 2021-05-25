@@ -16,7 +16,7 @@ $sidebar_modulos = [
         "modulo_type" => "item", 
         "modulo_link" => "#",
         "modulo_status" => "online",
-        "modulo_permissions" => [1, 2, 3],
+        "modulo_permissions" => [2, 3],
         "modulo_visibility" => "SI"
     ], [
         "idModulo" => 3, 
@@ -63,7 +63,17 @@ $sidebar_modulos = [
         "modulo_status" => "online",
         "modulo_permissions" => [1, 2, 3],
         "modulo_visibility" => "SI"
+    ], [
+        "idModulo" => 8, 
+        "modulo_nombre" => "Configuración", 
+        "modulo_icon" => "fad fa-user-cog fa-lg text-warning", 
+        "modulo_type" => "item", 
+        "modulo_link" => "#",
+        "modulo_status" => "online",
+        "modulo_permissions" => [1],
+        "modulo_visibility" => "SI"
     ]
+
 ]; 
 
 $sidebar_sub_modulos = [
@@ -134,11 +144,11 @@ $sidebar_sub_modulos = [
     ], [
         "idSubModulo" => 9, 
         "sub_modulo_nombre" => "Gestion de rol", 
-        "sub_modulo_icon" => "fad fa-home fa-lg", 
+        "sub_modulo_icon" => "fad fa-cog fa-lg text-warning", 
         "sub_modulo_link" => "GestionRol",
         "sub_modulo_status" => "online",
         "sub_modulo_permissions" => [1],
-        "idModulo" => 2
+        "idModulo" => 8
     ], [
         "idSubModulo" => 10, 
         "sub_modulo_nombre" => "Ficha antropometrica", 
@@ -171,6 +181,14 @@ $sidebar_sub_modulos = [
         "sub_modulo_status" => "online",
         "sub_modulo_permissions" => [2, 3],
         "idModulo" => 2
+    ], [
+        "idSubModulo" => 13, 
+        "sub_modulo_nombre" => "Problemas de usuarios", 
+        "sub_modulo_icon" => "fad fa-cog fa-lg text-warning", 
+        "sub_modulo_link" => "Problemas",
+        "sub_modulo_status" => "online",
+        "sub_modulo_permissions" => [1],
+        "idModulo" => 8
     ]
 ];
 

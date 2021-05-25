@@ -8,7 +8,7 @@ if (@!$_SESSION['user_session']) {
 $gestionRolController = new GestionRolController();
 ?>
 
-<h1>Gestion de roles</h1>
+<h1 class="text-center">Gestion de roles</h1>
 
 <div class="table-responsive-lg">
 	<table class="table">

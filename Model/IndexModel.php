@@ -24,6 +24,7 @@ class IndexModel {
 			case 'FichaAntropometrica':
 			case 'GestionRol';
 			case 'FichaIpaq';
+			case 'Problemas';
 			$modulo = "View/Modules/" . ($enlace) . ".php";
 			break;
 			
