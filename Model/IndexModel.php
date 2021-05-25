@@ -17,12 +17,13 @@ class IndexModel {
 			case 'Salir':
 			case 'Login':
 			case 'SignUp':
-			case 'Infor':
+			case 'Informacion':
 			case 'Ayuda':
 			case 'EvolucionMes':
 			case 'EjerciciosDiarios':
 			case 'FichaAntropometrica':
 			case 'GestionRol';
+			case 'FichaIpaq';
 			$modulo = "View/Modules/" . ($enlace) . ".php";
 			break;
 			

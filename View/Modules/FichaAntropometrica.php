@@ -15,7 +15,7 @@
 
 			<div class="form-group col-md-6">
 				<label>Altura</label>
-				<input type="number5" class="form-control" placeholder="Cm">
+				<input type="number" class="form-control" placeholder="Cm">
 			</div> 
 		</div>
 
