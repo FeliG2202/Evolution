@@ -9,9 +9,9 @@
 	<form>
 		<div class="form-row">
 			<div class="form-group col-md-6">
-				<label>Peso</label>
-				<input type="number" class="form-control" placeholder="Kg">
-			</div> 
+				<label>Fecha</label>
+				<input type="date" class="form-control" placeholder="">
+			</div>  
 
 			<div class="form-group col-md-6">
 				<label>Altura</label>
@@ -21,9 +21,9 @@
 
 		<div class="form-row">
 			<div class="form-group col-md-6">
-				<label>Fecha</label>
-				<input type="date" class="form-control" placeholder="">
-			</div> 
+				<label>Peso</label>
+				<input type="number" class="form-control" placeholder="Kg">
+			</div>
 
 			<div class="form-group col-md-6">
 				<label>Perimetro Craneal</label>
