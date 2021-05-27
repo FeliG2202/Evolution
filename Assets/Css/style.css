@@ -4,7 +4,7 @@
 @media screen and (min-width: 768px) { .disabled-object-sm { display: none; } }
 
 .img {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../Img/backgrounds/backgroundGeneral.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../Assets/Img/backgrounds/backgroundGeneral.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
