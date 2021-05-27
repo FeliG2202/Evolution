@@ -25,6 +25,9 @@ class IndexModel {
 			case 'GestionRol';
 			case 'FichaIpaq';
 			case 'Problemas';
+			case 'FichaFantastico';
+			case 'FichaInsomio';
+			
 			$modulo = "View/Modules/" . ($enlace) . ".php";
 			break;
 			

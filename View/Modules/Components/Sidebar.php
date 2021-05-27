@@ -84,7 +84,6 @@
     </div>
 
     <div class="sb-sidenav-footer">
-        <div class="small">Logged in as:</div>
-        Start Bootstrap
+        <img src="View/Assets/Img/logos/30_aventura.png" class="img-fluid">
     </div>
 </nav>

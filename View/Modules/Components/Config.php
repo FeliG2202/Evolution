@@ -11,7 +11,7 @@ $sidebar_modulos = [
         "modulo_visibility" => "SI"
     ], [
         "idModulo" => 2, 
-        "modulo_nombre" => "Ficha", 
+        "modulo_nombre" => "Test", 
         "modulo_icon" => "fad fa-folder fa-lg text-warning", 
         "modulo_type" => "item", 
         "modulo_link" => "#",
@@ -189,6 +189,22 @@ $sidebar_sub_modulos = [
         "sub_modulo_status" => "online",
         "sub_modulo_permissions" => [1],
         "idModulo" => 8
+    ], [
+        "idSubModulo" => 14, 
+        "sub_modulo_nombre" => "Ficha Fantastico", 
+        "sub_modulo_icon" => "fad fa-file fa-lg text-warning", 
+        "sub_modulo_link" => "FichaFantastico",
+        "sub_modulo_status" => "online",
+        "sub_modulo_permissions" => [2, 3],
+        "idModulo" => 2
+    ], [
+        "idSubModulo" => 15, 
+        "sub_modulo_nombre" => "Ficha de Insomio", 
+        "sub_modulo_icon" => "fad fa-file fa-lg text-warning", 
+        "sub_modulo_link" => "FichaInsomio",
+        "sub_modulo_status" => "online",
+        "sub_modulo_permissions" => [2, 3],
+        "idModulo" => 2
     ]
 ];
 
