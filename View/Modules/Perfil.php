@@ -1,6 +1,10 @@
-<?php if (@!$_SESSION['user_session']) {
+<?php 
+
+if (@!$_SESSION['user_session']) {
 	$indexController->getRequest("Home");
-} ?>
+} 
+
+?>
 
 <div class="border col-lg-6 mx-auto mt-5 mb-5 p-4 bg-white rounded">
 	<form>

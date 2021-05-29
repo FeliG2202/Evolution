@@ -2,14 +2,13 @@
 	$indexController->getRequest("Home");
 } ?>
 
-<div class="col-lg-10 mx-auto mt-5 mb-5 p-4 bg-white rounded shadow-sm">
+<div class="col-lg-10 mt-5 mb-5 p-4 bg-white rounded shadow-sm mx-auto">
 	<div class="w-100 text-center">
 		<img src="Assets/Img/logos/logoEvolutionBackground.png" class="img-fluid w-25 h-25">
 		<h4 class="p-3">Cuestionario Fantastico</h4>
 	</div>
 	<form>
-
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -25,7 +24,6 @@
 					</div>
 				</div> 
 			</div>
-
 
 			<div class="col-lg-6">
 				<div class="form-row">
@@ -43,10 +41,10 @@
 				</div>
 			</div>
 		</div>
-
+		
 		<hr>
 
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -77,12 +75,12 @@
 						</div>
 					</div> 
 				</div>	
-			</div>	
+			</div>
 		</div>
 
 		<hr>
-
-		<div class="row">
+		
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -118,7 +116,7 @@
 
 		<hr>
 
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -132,7 +130,7 @@
 							</select>
 						</div>
 					</div>
-				</div> 
+				</div>
 			</div>
 
 			<div class="col-lg-6">
@@ -149,12 +147,12 @@
 						</div>
 					</div>
 				</div> 
-			</div>
+			</div> 
 		</div>
-
+		
 		<hr>
 
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -190,7 +188,7 @@
 
 		<hr>
 
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -222,11 +220,11 @@
 					</div>
 				</div> 
 			</div>
-		</div>
+		</div>	
 
-		<hr>
-
-		<div class="row">
+		<hr>	
+		
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -262,7 +260,7 @@
 
 		<hr>
 
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -293,12 +291,12 @@
 						</div>
 					</div>
 				</div> 
-			</div>
+			</div>	
 		</div>
 
 		<hr>
 
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -329,12 +327,12 @@
 						</div>
 					</div>
 				</div> 
-			</div>
+			</div>	
 		</div>
 
 		<hr>
 
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -370,7 +368,7 @@
 
 		<hr>
 
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -406,7 +404,7 @@
 
 		<hr>
 
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -437,13 +435,13 @@
 						</div>
 					</div>
 				</div> 
-			</div>
+			</div>		
 		</div>
 
 		<hr>
 
-		<div class="row">
-			<div class="col-lg-6">
+		<div class="form-row">
+			<div class="col-lg-6 step">
 				<div class="form-row">
 					<div class="form-group col-md-12">
 						<label>25. Yo soy un pensador positivo u optimista</label>
@@ -478,7 +476,7 @@
 
 		<hr>
 
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -514,7 +512,7 @@
 
 		<hr>
 
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
@@ -550,7 +548,7 @@
 
 		<hr>
 
-		<div class="row">
+		<div class="form-row">
 			<div class="col-lg-6">
 				<div class="form-row">
 					<div class="form-group col-md-12">
