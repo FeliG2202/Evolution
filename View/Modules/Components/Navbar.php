@@ -1,3 +1,7 @@
+<?php /*foreach($controller->read($_SESSION['idUsuarios']) as $key => $dataUser) {
+
+}*/ ?>
+
 <nav class="sb-topnav navbar navbar-expand navbar-light bg-turquoise shadow-sm">
   <a class="navbar-brand" href="home">Evolution</a>
 
@@ -8,7 +12,7 @@
   <!-- Navbar Search-->
   <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 w-100">
     <?php if (@$_SESSION['user_session']) { ?>
-      <input class="form-control w-100 text-center mr-3 ml-3" type="text" value="Felipe" readonly>
+      <input class="form-control w-100 text-center mr-3 ml-3" type="text" value="<?php //echo($dataUser['usuarios_nombres']); ?>" readonly>
     <?php } ?>
   </form>
   

@@ -20,15 +20,20 @@ $gestionRolController = new GestionRolController();
 			<th>Rol</th>
 		</thead>
 		<tbody>
-			<?php foreach ($gestionRolController->readUsers() as $key => $data) {
+			<?php 
+			$i=1;
+			foreach ($gestionRolController->readUsers() as $key => $data) {
 				echo("<tr>
-					<td>" . ($data['idUsuarios']) . "</td>
+					<td>" . ($i++) . "</td>
 					<td>" . ($data['usuarios_nombres']) . "</td>
 					<td>" . ($data['usuarios_apellidos']) . "</td>
 					<td>" . ($data['usuarios_email']) . "</td>
 					<td>" . ($data['roles_descripcion']) . "</td>
+					<td><a href='index.php?action=GestionRol&del=" . ($data['hospitales_code']) . "'>Eliminar</a></td>
+					<td><a href='index.php?action=EditarGestionRol&id=" . ($data['hospitales_code']) . "'>Editar</a></td>
 					</tr>");
-			} ?>
+			} 
+			?>
 		</tbody>
 		<tfoot>
 			<th>Id</th>

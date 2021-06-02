@@ -4,7 +4,7 @@
 
 <div class="col-lg-6 mx-auto mt-5 mb-5 p-4 bg-white rounded shadow-sm">
 	<div class="w-100 text-center">
-		<img src="Assets/Img/logos/logoEvolutionBackground.png" class="img-fluid w-25 h-25">
+		<img src="View/Assets/Img/logos/logoEvolutionBackground.png" class="img-fluid w-25 h-25">
 	</div>
 	<form>
 		<div class="form-row">
