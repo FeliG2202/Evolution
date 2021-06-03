@@ -1,5 +1,5 @@
-<?php require_once("Controller/LoginController.php") ?>
-<?php $controller = new LoginController(); ?>
+<?php require_once("Controller/SingUpController.php") ?>
+<?php $controller = new SingUpController(); ?>
 
 <div class="col-lg-7 mx-auto mt-5 mb-5 p-4 bg-white rounded shadow-sm">
 	<div class="w-100 text-center">
