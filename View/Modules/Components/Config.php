@@ -72,6 +72,15 @@ $sidebar_modulos = [
         "modulo_status" => "online",
         "modulo_permissions" => [1],
         "modulo_visibility" => "SI"
+    ], [
+        "idModulo" => 9, 
+        "modulo_nombre" => "Cuestionario", 
+        "modulo_icon" => "fad fa-clipboard fa-lg text-warning",
+        "modulo_type" => "item", 
+        "modulo_link" => "#",
+        "modulo_status" => "online",
+        "modulo_permissions" => [2, 3],
+        "modulo_visibility" => "SI"
     ]
 
 ]; 
@@ -159,12 +168,12 @@ $sidebar_sub_modulos = [
         "idModulo" => 2
     ], [
         "idSubModulo" => 10, 
-        "sub_modulo_nombre" => "Ficha  Ipaq", 
+        "sub_modulo_nombre" => "Cuestionario  Ipaq", 
         "sub_modulo_icon" => "fad fa-file fa-lg text-warning", 
-        "sub_modulo_link" => "FichaIpaq",
+        "sub_modulo_link" => "CuestionarioIpaq",
         "sub_modulo_status" => "online",
         "sub_modulo_permissions" => [2, 3],
-        "idModulo" => 2
+        "idModulo" => 9
     ], [
         "idSubModulo" => 11, 
         "sub_modulo_nombre" => "Avances", 
@@ -191,20 +200,28 @@ $sidebar_sub_modulos = [
         "idModulo" => 8
     ], [
         "idSubModulo" => 14, 
-        "sub_modulo_nombre" => "Ficha Fantastico", 
+        "sub_modulo_nombre" => "Cuestionario Fantastico", 
         "sub_modulo_icon" => "fad fa-file fa-lg text-warning", 
-        "sub_modulo_link" => "FichaFantastico",
+        "sub_modulo_link" => "CuestionarioFantastico",
         "sub_modulo_status" => "online",
         "sub_modulo_permissions" => [2, 3],
-        "idModulo" => 2
+        "idModulo" => 9
     ], [
         "idSubModulo" => 15, 
-        "sub_modulo_nombre" => "Ficha de Insomio", 
+        "sub_modulo_nombre" => "Cuestionario de Insomio", 
         "sub_modulo_icon" => "fad fa-file fa-lg text-warning", 
-        "sub_modulo_link" => "FichaInsomio",
+        "sub_modulo_link" => "CuestionarioInsomio",
         "sub_modulo_status" => "online",
         "sub_modulo_permissions" => [2, 3],
-        "idModulo" => 2
+        "idModulo" => 9
+    ], [
+        "idSubModulo" => 16, 
+        "sub_modulo_nombre" => "Resultados Cuestionario", 
+        "sub_modulo_icon" => "fad fa-file fa-lg text-warning", 
+        "sub_modulo_link" => "ResultadosCuestionario",
+        "sub_modulo_status" => "online",
+        "sub_modulo_permissions" => [2, 3],
+        "idModulo" => 9
     ]
 ];
 

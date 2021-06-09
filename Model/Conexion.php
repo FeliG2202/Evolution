@@ -29,4 +29,28 @@ class Conexion {
 		return !$PreparedStatement->execute() ? false : (!$option ? $PreparedStatement->fetch() : $PreparedStatement->fetchAll());
 	}
 
+	public function getBindValue($stmt, $data) {
+		$i = 0; $j = 1;
+
+		do {
+			if ($data[$i] > 1) {
+				if (strtolower($data[$i][1]) === "str") {
+					$stmt->bindValue($j, $data[$i][0], PDO::PARAM_STR);
+				} elseif (strtolower($data[$i][1]) === "int") {
+					$stmt->bindValue($j, $data[$i][0], PDO::PARAM_INT);
+				} elseif (empty(strtolower($data[$i][1]))) {
+					$stmt->bindValue($j, $data[$i][0], PDO::PARAM_STR);
+				} else {
+					$stmt->bindValue($j, $data[$i][0], PDO::PARAM_STR);
+				}
+			} else {
+				$stmt->bindValue($j, $data[$i][0], PDO::PARAM_STR);
+			}
+			$i++;
+			$j++;
+		} while ($i < count($data));
+
+		return $stmt;
+	}
+
 }

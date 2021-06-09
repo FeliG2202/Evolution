@@ -23,11 +23,11 @@ class IndexModel {
 			case 'EjerciciosDiarios':
 			case 'FichaAntropometrica':
 			case 'GestionRol':
-			case 'FichaIpaq':
+			case 'CuestionarioIpaq':
 			case 'Problemas':
-			case 'FichaFantastico':
-			case 'FichaInsomio':
-			case 'EditarGestionRol':
+			case 'CuestionarioFantastico':
+			case 'CuestionarioInsomio':
+			case 'ResultadosCuestionario':
 			
 			$modulo = "View/Modules/" . ($enlace) . ".php";
 			break;

@@ -14,7 +14,7 @@ class LoginController {
 	public function validateLogin($request = null) {
 		if (isset($_POST['usuarios_email_l']) && isset($_POST['usuarios_password_l'])) {
 			if (!empty($_POST['usuarios_email_l']) && !empty($_POST['usuarios_password_l'])) {
-				$this->loginClass = new LoginClass(null, null, $_POST['usuarios_email_l'], $_POST['usuarios_password_l']);
+				$this->loginClass = new LoginClass(null, null, strtolower($_POST['usuarios_email_l']), $_POST['usuarios_password_l']);
 				$files = $this->loginModel->validateLoginDB($this->loginClass);
 
 				if ($files['files'] > 0) {

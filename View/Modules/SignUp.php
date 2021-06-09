@@ -36,7 +36,7 @@
 				<select id="inputState" name="generosession" class="form-control">
 					<option>Masculino</option>
 					<option>Fememnino</option>
-					<option>Otros</option>
+					<option>Otro</option>
 				</select>
 			</div>
 

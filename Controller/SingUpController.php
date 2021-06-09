@@ -42,7 +42,7 @@ class SingUpController {
 						"apellidosession" => $_POST['apellidosession'],
 						"documentosession" => $_POST['documentosession'],
 						"fechanacimientosession" => $_POST['fechanacimientosession'],
-						"correosession" => $_POST['correosession'],
+						"correosession" => strtolower($_POST['correosession']),
 						"contrasenasession" => $_POST['contrasenasession'],
 						"generosession" => $_POST['generosession'],
 						"pesosession" => $_POST['pesosession'],
@@ -55,10 +55,10 @@ class SingUpController {
 					if ($this->singUpModel->createUserDB($data)) {
 						return [true, "Login"];
 					} else {
-						return [false, "Error, no se registró el hospital."];
+						return [false, "Error, no se puedo registrar el usuario."];
 					}
 				} else {
-					return [false, "Error, todos los campos son obligatorios"];
+					return [false, "Error, todos los campos son obligatorios."];
 				}
 			}
 		}
