@@ -1,6 +1,8 @@
 <?php if (@!$_SESSION['user_session']) {
 	$indexController->getRequest("Home");
 } ?>
+<?php require_once("Controller/Modules/CuestionarioInsomioController.php") ?>
+<?php $cuestionarioInsomioController = new CuestionarioInsomioController(); ?>
 
 <div class="col-lg-10 mt-5 mb-5 p-4 bg-white rounded shadow-sm mx-auto">
 	<form method="POST" class="needs-validation" novalidate>
@@ -18,7 +20,7 @@
 					<th scope="row">1</th>
 					<td class="w-75">Inducción del dormir (tiempo que le toma quedarse dormido una vez acostado).</td>
 					<td class="w-25">
-						<select id="inputState" class="custom-select" required>
+						<select id="inputState" name="pregunta1" class="custom-select" required>
 							<option value="" selected>Seleccione</option>
 							<option>Ningún problema</option>
 							<option>Ligeramente retrasado</option>
@@ -34,7 +36,7 @@
 					<th scope="row">2</th>
 					<td>Despertares durante la noche.</td>
 					<td>
-						<select id="inputState" class="custom-select" required>
+						<select id="inputState" name="pregunta2" class="custom-select" required>
 							<option value="" selected>Seleccione</option>
 							<option>Ningún problema</option>
 							<option>Problema menor</option>
@@ -50,7 +52,7 @@
 					<th scope="row">3</th>
 					<td>Despertar final más temprano de lo deseado.</td>
 					<td>
-						<select id="inputState" class="custom-select" required>
+						<select id="inputState" name="pregunta3" class="custom-select" required>
 							<option value="" selected>Seleccione</option>
 							<option>No más temprano</option>
 							<option>Un poco más temprano</option>
@@ -66,7 +68,7 @@
 					<th scope="row">4</th>
 					<td>Duración total del dormir.</td>
 					<td>
-						<select id="inputState" class="custom-select" required>
+						<select id="inputState" name="pregunta4" class="custom-select" required>
 							<option value="" selected>Seleccione</option>
 							<option>Suficiente</option>
 							<option>Ligeramente insuficiente</option>
@@ -82,7 +84,7 @@
 					<th scope="row">5</th>
 					<td>Calidad general del dormir (no importa cuánto tiempo durmió usted).</td>
 					<td>
-						<select id="inputState" class="custom-select" required>
+						<select id="inputState" name="pregunta5" class="custom-select" required>
 							<option value="" selected>Seleccione</option>
 							<option>Satisfactoria</option>
 							<option>Ligeramente insatisfactoria</option>
@@ -98,7 +100,7 @@
 					<th scope="row">6</th>
 					<td>Sensación de bienestar durante el día.</td>
 					<td>
-						<select id="inputState" class="custom-select" required>
+						<select id="inputState" name="pregunta6" class="custom-select" required>
 							<option value="" selected>Seleccione</option>
 							<option>Normal</option>
 							<option>Ligeramente disminuida</option>
@@ -114,7 +116,7 @@
 					<th scope="row">7</th>
 					<td>Funcionamiento (físico y mental) durante el día.</td>
 					<td>
-						<select id="inputState" class="custom-select" required>
+						<select id="inputState" name="pregunta7" class="custom-select" required>
 							<option value="" selected>Seleccione</option>
 							<option>Normal</option>
 							<option>Ligeramente disminuida</option>
@@ -130,7 +132,7 @@
 					<th scope="row">8</th>
 					<td>Somnolencia durante el día.</td>
 					<td>
-						<select id="inputState" class="custom-select" required>
+						<select id="inputState" name="pregunta8" class="custom-select" required>
 							<option value="" selected>Seleccione</option>
 							<option>Ninguna</option>
 							<option>Leve</option>
@@ -146,6 +148,19 @@
 
 		<div class="form-group">
 			<button type="submit" class="btn btn-success btn-block">Registar</button>
+		</div> 
+
+		<div class="mt-3">
+			<?php
+			$request = $cuestionarioInsomioController->CuestionarioInsomio();
+			if ($request != null) {
+				if ($request[0]) {
+					echo('<script type="text/javascript">window.location.href="' . ($request[1]) . '";</script>');
+				} elseif (!$request[0]) {
+					echo($request[1]);
+				}
+			} 
+			?>
 		</div>           
 	</form>
 </div>
