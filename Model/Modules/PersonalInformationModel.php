@@ -10,7 +10,7 @@ class PersonalInformationModel {
 	}
 
 	public function readPersonalInformationDB() {
-		$sql = "SELECT * FROM evolution.datos_personales";
+		$sql = "SELECT * FROM evolution.usuarios";
 
 		try {
 			$stmt = $this->conexion->getPrepare($sql);

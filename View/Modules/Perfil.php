@@ -1,9 +1,11 @@
 <?php 
+require_once("Controller/Modules/PersonalInformationController.php");
 
 if (@!$_SESSION['user_session']) {
 	$indexController->getRequest("Home");
 } 
 
+$PersonalInformationModel = new PersonalInformationModel();
 ?>
 
 <div class="border col-lg-6 mx-auto mt-5 mb-5 p-4 bg-white rounded">
@@ -12,46 +14,36 @@ if (@!$_SESSION['user_session']) {
 		<div class="form-row">
 			<div class="form-group col-md-6">
 				<label>Nombres</label>
-				<input class="form-control" value="Felipe">
+				<input value="<?php echo($data['usuarios_nombres']); ?>" class="form-control" readonly>
 			</div> 
 
 			<div class="form-group col-md-6">
 				<label>Apellidos</label>
-				<input class="form-control" value="Gavilan">
+				<input value="<?php echo($data['usuarios_apellidos']); ?>" class="form-control" readonly>
 			</div> 
 		</div> 
 
 		<div class="form-row">
 			<div class="form-group col-md-6">
-				<label>Celular</label>
-				<input class="form-control" value="3156078058">
+				<label>N° Identificación</label>
+				<input value="<?php echo($data['usuarios_documento']); ?>" class="form-control" readonly>
 			</div> 
 
 			<div class="form-group col-md-6">
-				<label>N° Identificación</label>
-				<input class="form-control" value="1005958885">
+				<label>Genero</label>
+				<input value="<?php echo($data['usuarios_genero']); ?>" class="form-control" readonly>
 			</div> 
 		</div>
 
 		<div class="form-row">
 			<div class="form-group col-md-6">
-				<label>Genero</label>
-				<select id="inputState" class="form-control">
-					<option>Fememnino</option>
-					<option>Masculino</option>
-					<option>Otros</option>
-				</select>
-			</div> 
-
-			<div class="form-group col-md-6">
 				<label>Rol</label>
 				<input class="form-control" value="Administración" readonly>
 			</div> 
-
-			<div class="form-group">
-				<button type="submit" class="btn btn-success btn-block">Modificar</button>
-			</div>
 		</div>
+
+
+		<button type="submit" class="btn btn-success btn-block">Modificar</button>
 	</form>
 </div>
 
