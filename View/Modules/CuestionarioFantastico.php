@@ -8,6 +8,16 @@
 	<form method="POST" class="needs-validation" novalidate>
 		<table class="table table-hover table-sm">
 			<h3 class="text-center">Cuestionario Fantastico</h3><br>
+			<?php
+			$request = $cuestionarioFantasticoController->CuestionarioFantastico();
+			if ($request != null) {
+				if ($request[0]) {
+					echo('<script type="text/javascript">window.location.href="' . ($request[1]) . '";</script>');
+				} elseif (!$request[0]) {
+					echo('<div class="alert alert-danger mt-3 mb-3" role="alert">' . ($request[1]) . '</div>');
+				}
+			} 
+			?> 
 			<thead>
 				<tr>
 					<th scope="col">#</th>
@@ -457,7 +467,7 @@
 					<td>
 						<select id="inputState" name="pregunta30" class="custom-select" required>
 							<option value="" selected>Seleccione</option>
-							<option>casi siempre</option>
+							<option>siempre</option>
 							<option>a veces</option>
 							<option>casi nunca</option>
 						</select>
@@ -500,19 +510,6 @@
 
 		<div class="form-group">
 			<button type="submit" class="btn btn-success btn-block">Registar</button>
-		</div>
-
-		<div class="mt-3">
-			<?php
-			$request = $cuestionarioFantasticoController->CuestionarioFantastico();
-			if ($request != null) {
-				if ($request[0]) {
-					echo('<script type="text/javascript">window.location.href="' . ($request[1]) . '";</script>');
-				} elseif (!$request[0]) {
-					echo($request[1]);
-				}
-			} 
-			?>
 		</div>           
 	</form>
 </div>

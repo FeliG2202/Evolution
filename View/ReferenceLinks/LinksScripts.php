@@ -4,3 +4,4 @@
 <script src="View/Assets/fontawesome/js/all.min.js"></script>
 <script src="View/Assets/Js/sidebar.js"></script>
 <script src="View/Assets/Js/script.js"></script>
+<script src="View/Assets/Js/prueba.js"></script>

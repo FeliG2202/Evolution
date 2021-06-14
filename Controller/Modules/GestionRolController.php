@@ -16,6 +16,7 @@ class GestionRolController {
 	public function deleteUsers() {
 		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 			if (isset($_GET['del'])) {
+				var_dump($_GET['del']);
 				if ($this->gestionRolModel->deleteUsersDB(["usuarios_code" => $_GET['del']])) {
 					return [true, "GestionRol"];
 				} else {

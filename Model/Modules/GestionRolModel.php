@@ -38,7 +38,7 @@ class GestionRolModel {
 			$stmt->bindValue(2, $data['apellidoupdate'], PDO::PARAM_STR);
 			$stmt->bindValue(3, $data['gmailupdate'], PDO::PARAM_STR);
 			$stmt->bindValue(4, $data['roles_descripcion'], PDO::PARAM_STR);
-			$stmt->bindValue(3, $data['code'], PDO::PARAM_STR);
+			$stmt->bindValue(5, $data['code'], PDO::PARAM_STR);
 			return $stmt->execute();
 		} catch (PDOException $e){
 			return false;

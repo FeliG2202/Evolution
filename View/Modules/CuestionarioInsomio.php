@@ -8,6 +8,16 @@
 	<form method="POST" class="needs-validation" novalidate>
 		<table class="table table-hover table-sm">
 			<h3 class="text-center">Cuestionario Insomio</h3><br>
+			<?php
+			$request = $cuestionarioInsomioController->CuestionarioInsomio();
+			if ($request != null) {
+				if ($request[0]) {
+					echo('<script type="text/javascript">window.location.href="' . ($request[1]) . '";</script>');
+				} elseif (!$request[0]) {
+					echo('<div class="alert alert-danger mt-3 mb-3" role="alert">' . ($request[1]) . '</div>');
+				}
+			} 
+			?>
 			<thead>
 				<tr>
 					<th scope="col">#</th>
@@ -148,19 +158,6 @@
 
 		<div class="form-group">
 			<button type="submit" class="btn btn-success btn-block">Registar</button>
-		</div> 
-
-		<div class="mt-3">
-			<?php
-			$request = $cuestionarioInsomioController->CuestionarioInsomio();
-			if ($request != null) {
-				if ($request[0]) {
-					echo('<script type="text/javascript">window.location.href="' . ($request[1]) . '";</script>');
-				} elseif (!$request[0]) {
-					echo($request[1]);
-				}
-			} 
-			?>
-		</div>           
+		</div>            
 	</form>
 </div>

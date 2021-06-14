@@ -1,15 +1,15 @@
 <div class="col-lg-10 mt-5 mb-5 p-4 bg-white rounded shadow-sm mx-auto">
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+      <a class="nav-link <?php echo(isset($_GET['selected']) ? ($_GET['selected'] === "ipaq" ? 'active' : '') : 'active') ?>" id="nav-ipaq-tab" data-toggle="tab" href="#nav-ipaq" role="tab" aria-controls="nav-ipaq" aria-selected="<?php echo(isset($_GET['selected']) ? ($_GET['selected'] === "ipaq" ? 'true' : 'false') : 'false') ?>">
         Cuestionario Ipaq
       </a>
 
-      <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+      <a class="nav-link <?php echo(isset($_GET['selected']) ? ($_GET['selected'] === "fantastico" ? 'active' : '') : '') ?>" id="nav-fantastico-tab" data-toggle="tab" href="#nav-fantastico" role="tab" aria-controls="nav-fantastico" aria-selected="<?php echo(isset($_GET['selected']) ? ($_GET['selected'] === "fantastico" ? 'true' : 'false') : 'false') ?>">
         Cuestionario Fantastico
       </a>
 
-      <a class="nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">
+      <a class="nav-link <?php echo(isset($_GET['selected']) ? ($_GET['selected'] === "insomio" ? 'active' : '') : '') ?>" id="nav-insomio-tab" data-toggle="tab" href="#nav-insomio" role="tab" aria-controls="nav-insomio" aria-selected="<?php echo(isset($_GET['selected']) ? ($_GET['selected'] === "insomio" ? 'true' : 'false') : 'false') ?>">
         Cuestionario Insomio
       </a>
     </div>
@@ -17,7 +17,7 @@
 
   <!-- Contenido del Cuestionario Ipaq -->
   <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <div class="tab-pane fade <?php echo(isset($_GET['selected']) ? ($_GET['selected'] === "ipaq" ? 'show active' : '') : 'show active') ?>" id="nav-ipaq" role="tabpanel" aria-labelledby="nav-ipaq-tab">
       <form>
         <table class="table table-hover table-sm">
           <h3 class="text-center mt-3">Cuestionario Ipaq</h3><br>
@@ -90,7 +90,7 @@
     </div>
 
     <!-- contenido Cuestionario Fantastico -->
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <div class="tab-pane fade <?php echo(isset($_GET['selected']) ? ($_GET['selected'] === "fantastico" ? 'show active' : '') : '') ?>" id="nav-fantastico" role="tabpanel" aria-labelledby="nav-fantastico-tab">
       <form>
         <table class="table table-hover table-sm">
           <h3 class="text-center mt-3">Cuestionario Fantastico</h3><br>
@@ -363,7 +363,7 @@
   </div>
 
   <!-- Contenido del formulario Insomio -->
-  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+  <div class="tab-pane fade <?php echo(isset($_GET['selected']) ? ($_GET['selected'] === "insomio" ? 'show active' : '') : '') ?>" id="nav-insomio" role="tabpanel" aria-labelledby="nav-insomio-tab">
     <form>
       <table class="table table-hover table-sm">
         <h3 class="text-center mt-3">Cuestionario Insomio</h3><br>
@@ -396,55 +396,55 @@
             <td>Despertar final más temprano de lo deseado.</td>
             <td>
               <input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
-          </tr>
+            </tr>
 
-          <tr>
-            <th scope="row">4</th>
-            <td>Duración total del dormir.</td>
-            <td>
-              <input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
-            </td>
-          </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Duración total del dormir.</td>
+              <td>
+                <input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
+              </td>
+            </tr>
 
-          <tr>
-            <th scope="row">5</th>
-            <td>Calidad general del dormir (no importa cuánto tiempo durmió usted).</td>
-            <td>
-              <input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
-            </td>
-          </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Calidad general del dormir (no importa cuánto tiempo durmió usted).</td>
+              <td>
+                <input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
+              </td>
+            </tr>
 
-          <tr>
-            <th scope="row">6</th>
-            <td>Sensación de bienestar durante el día.</td>
-            <td>
-              <input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
-            </td>
-          </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>Sensación de bienestar durante el día.</td>
+              <td>
+                <input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
+              </td>
+            </tr>
 
-          <tr>
-            <th scope="row">7</th>
-            <td>Funcionamiento (físico y mental) durante el día.</td>
-            <td>
-              <input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
-            </td>
-          </tr>
+            <tr>
+              <th scope="row">7</th>
+              <td>Funcionamiento (físico y mental) durante el día.</td>
+              <td>
+                <input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
+              </td>
+            </tr>
 
-          <tr>
-            <th scope="row">8</th>
-            <td>Somnolencia durante el día.</td>
-            <td>
-              <input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            <tr>
+              <th scope="row">8</th>
+              <td>Somnolencia durante el día.</td>
+              <td>
+                <input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-      <div class="form-group">
-        <button type="submit" class="btn btn-success btn-block">Registar</button>
-      </div>           
-    </form>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success btn-block">Registar</button>
+        </div>           
+      </form>
+    </div>
   </div>
-</div>
 
 </div>

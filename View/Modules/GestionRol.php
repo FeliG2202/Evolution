@@ -91,12 +91,12 @@ $gestionRolController = new GestionRolController();
 
 					<div class="form-group">
 						<select class="custom-select">
-							<option value="">Seleccione</option>
-							<option value="idRoles">roles_description
-							</option>
+							<option value="" selected>Seleccione</option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
 						</select>
 					</div>
-
 				</form>
 			</div>
 			<div class="modal-footer">
