@@ -2,11 +2,11 @@
 
 }*/ ?>
 
-<nav class="sb-topnav navbar navbar-expand navbar-light bg-turquoise shadow-sm">
-  <a class="navbar-brand" href="home">Evolution</a>
+<nav class="sb-topnav navbar navbar-expand navbar-light bg-orange shadow-sm">
+  <a class="navbar-brand text-white" href="home">Evolution</a>
 
   <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!">
-    <i class="fas fa-bars fa-lg"></i>
+    <i class="fas fa-bars fa-lg text-white"></i>
   </button>
 
   <!-- Navbar Search-->
@@ -20,7 +20,7 @@
   <ul class="navbar-nav ml-auto ml-md-0">
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fa fa-user"></i>
+        <i class="fa fa-user text-white"></i>
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
         <?php if (@!$_SESSION['user_session']) { ?>

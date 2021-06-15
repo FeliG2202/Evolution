@@ -9,11 +9,19 @@ class CuestionarioInsomioController {
 		$this->cuestionarioInsomioModel = new CuestionarioInsomioModel();
 	}
 
+	public function readValidateInsomio(): bool {
+		return $this->cuestionarioInsomioModel->readValidateInsomioDB([
+			"idUsuarios" => $_SESSION['idUsuarios'],
+			"fecha_creacion" => date('Y-m-d')
+		])['files'] > 0 ? true : false;
+	}
+
 	public function CuestionarioInsomio() {
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$data = [
 				"code" => uniqid(),
-				"idUsuarios" => $_SESSION['idUsuarios']
+				"idUsuarios" => $_SESSION['idUsuarios'],
+				"fecha_creacion" => date('Y-m-d')
 			];
 
 			for($input = 1; $input <= 8; $input++) {
@@ -26,11 +34,7 @@ class CuestionarioInsomioController {
 				}
 			}
 
-			if ($this->cuestionarioInsomioModel->CuestionarioInsomioDB($data)) {
-				return [true, "index.php?action=ResultadosCuestionario&selected=insomio"];
-			} else {
-				return [false, "Error, no se puedo Guardar el cuestionario."];
-			}
+			return !$this->cuestionarioInsomioModel->CuestionarioInsomioDB($data) ? [false, "Error, no se puedo Guardar el cuestionario."] : [true, "index.php?action=CuestionarioInsomio"];
 		}
 	}
 	

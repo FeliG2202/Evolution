@@ -9,11 +9,19 @@ class CuestionarioFantasticoController {
 		$this->cuestionarioFantasticoModel = new CuestionarioFantasticoModel();
 	}
 
+	public function readValidateFantastico(): bool {
+		return $this->cuestionarioFantasticoModel->readValidateFantasticoDB([
+			"idUsuarios" => $_SESSION['idUsuarios'],
+			"fecha_creacion" => date('Y-m-d')
+		])['files'] > 0 ? true : false;
+	}
+
 	public function CuestionarioFantastico() {
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$data = [
 				"code" => uniqid(),
-				"idUsuarios" => $_SESSION['idUsuarios']
+				"idUsuarios" => $_SESSION['idUsuarios'],
+				"fecha_creacion" => date('Y-m-d')
 			];
 
 			for($input = 1; $input <= 32; $input++) {
@@ -26,11 +34,7 @@ class CuestionarioFantasticoController {
 				}
 			}
 
-			if ($this->cuestionarioFantasticoModel->CuestionarioFantasticoDB($data)) {
-				return [true, "index.php?action=ResultadosCuestionario&selected=fantastico"];
-			} else {
-				return [false, "Error, no se puedo Guardar el cuestionario."];
-			}
+			return !$this->cuestionarioFantasticoModel->CuestionarioFantasticoDB($data) ? [false, "Error, no se puedo Guardar el cuestionario."] : [true, "index.php?action=CuestionarioFantastico"];
 		}
 	}
 	

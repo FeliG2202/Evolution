@@ -214,14 +214,6 @@ $sidebar_sub_modulos = [
         "sub_modulo_status" => "online",
         "sub_modulo_permissions" => [2, 3],
         "idModulo" => 9
-    ], [
-        "idSubModulo" => 16, 
-        "sub_modulo_nombre" => "Resultados Cuestionario", 
-        "sub_modulo_icon" => "fad fa-file fa-lg text-warning", 
-        "sub_modulo_link" => "ResultadosCuestionario",
-        "sub_modulo_status" => "online",
-        "sub_modulo_permissions" => [2, 3],
-        "idModulo" => 9
     ]
 ];
 

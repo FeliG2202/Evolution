@@ -9,11 +9,19 @@ class CuestionarioIpaqController {
 		$this->cuestionarioIpaqModel = new CuestionarioIpaqModel();
 	}
 
+	public function readValidateIpaq(): bool {
+		return $this->cuestionarioIpaqModel->readValidateIpaqDB([
+			"idUsuarios" => $_SESSION['idUsuarios'],
+			"fecha_creacion" => date('Y-m-d')
+		])['files'] > 0 ? true : false;
+	}
+
 	public function CuestionarioIpaq() {
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$data = [
 				"code" => uniqid(),
-				"idUsuarios" => $_SESSION['idUsuarios']
+				"idUsuarios" => $_SESSION['idUsuarios'],
+				"fecha_creacion" => date('Y-m-d')
 			];
 
 			for($input = 1; $input <= 10; $input++) {
@@ -26,11 +34,7 @@ class CuestionarioIpaqController {
 				}
 			}
 
-			if ($this->cuestionarioIpaqModel->CuestionarioIpaqDB($data)) {
-				return [true, "index.php?action=ResultadosCuestionario&selected=ipaq"];
-			} else {
-				return [false, "Error, no se puedo Guardar el cuestionario."];
-			}
+			return !$this->cuestionarioIpaqModel->CuestionarioIpaqDB($data) ? [false, "Error, no se puedo Guardar el cuestionario."] : [true, "index.php?action=CuestionarioIpaq"];
 		}
 	}
 	
