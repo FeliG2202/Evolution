@@ -14,7 +14,7 @@ class CuestionarioInsomioModel {
 		try {
 			$stmt = $this->conexion->getprepare($sql);
 			$stmt->bindValue(1, $data['fecha_creacion'], PDO::PARAM_STR);
-			$stmt->bindValue(2, $data['idUsuarios'], PDO::PARAM_STR);
+			$stmt->bindValue(2, $data['idUsuarios'], PDO::PARAM_INT);
 			return $this->conexion->getFetch($stmt, false);
 		} catch (PDOException $e) {
 			return false;
