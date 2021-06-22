@@ -3,7 +3,10 @@
 }*/ ?>
 
 <nav class="sb-topnav navbar navbar-expand navbar-light bg-orange shadow-sm">
-  <a class="navbar-brand text-white" href="home">Evolution</a>
+  <a class="navbar-brand text-white" href="home">
+    <img src="View/Assets/Img/logos/logoEvolutionBackground.png" width="35" height="35" class="d-inline-block align-top" alt="">
+    Evolution
+  </a>
 
   <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#!">
     <i class="fas fa-bars fa-lg text-white"></i>

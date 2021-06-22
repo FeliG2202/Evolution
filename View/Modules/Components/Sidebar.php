@@ -84,6 +84,6 @@
     </div>
 
     <div class="sb-sidenav-footer">
-        <img src="View/Assets/Img/logos/30_aventura.png" class="img-fluid">
+        <img src="View/Assets/Img/logos/30_aventura.png" width="190" height="75" class="d-inline-block align-top">
     </div>
 </nav>

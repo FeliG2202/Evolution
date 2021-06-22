@@ -49,7 +49,7 @@ class GestionRolController {
 					if ($this->gestionRolModel->readUsersDB($data)) {
 						return [true, "GestionRol"];
 					} else {
-						return [false, "Error, no se registró la impresora."];
+						return [false, "Error, no se registró el usuario."];
 					}
 				} else {
 					return [false, "Error, todos los campos son obligatorios"];

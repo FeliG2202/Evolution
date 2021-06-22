@@ -4,8 +4,12 @@
 <?php require_once("Controller/Modules/CuestionarioInsomioController.php") ?>
 <?php $cuestionarioInsomioController = new CuestionarioInsomioController(); ?>
 
+<?php $dates = $cuestionarioInsomioController->ValideteFechaInsomio();?>
 
-<?php $validate = $cuestionarioInsomioController->readValidateInsomio(); ?>
+<?php $validate = $cuestionarioInsomioController->readValidateInsomio();?>
+
+<?php $Cuestionario = $cuestionarioInsomioController->readCuestionarioInsomio() ?>
+
 <?php if (!$validate) { ?>
 	<div class="col-lg-10 mt-5 mb-5 p-4 bg-white rounded shadow-sm mx-auto">
 		<form method="POST" class="needs-validation" novalidate>
@@ -172,10 +176,11 @@
 
 			<div class="input-group mb-3 mt-4">
 				<select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-					<option selected>Choose...</option>
-					<option value="1">One</option>
-					<option value="2">Two</option>
-					<option value="3">Three</option>
+						<?php 
+							foreach($dates as $date) {
+									echo('<option>'.$date['cuestionario_insomio_fecha_creacion'].'</option>');
+							}
+						?>
 				</select>
 
 				<div class="input-group-append">
@@ -192,11 +197,13 @@
 					</tr>
 				</thead>
 				<tbody>
+					<?php var_dump($Cuestionario); ?>
+					<?php foreach (Cuestionario as $key => $data) { ?>
 					<tr>
 						<th scope="row">1</th>
 						<td class="w-75">Inducción del dormir (tiempo que le toma quedarse dormido una vez acostado).</td>
 						<td class="w-25">
-							<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
+							<input type="text" name="apellidoupdate" value="<?php echo($data['pregunta1']); ?>" class="form-control" readonly> 
 						</td>
 					</tr>
 
@@ -204,7 +211,7 @@
 						<th scope="row">2</th>
 						<td>Despertares durante la noche.</td>
 						<td>
-							<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
+							<input type="text" name="apellidoupdate" value="<?php echo($data['pregunta2']); ?>" class="form-control" readonly> 
 						</td>
 					</tr>
 
@@ -212,14 +219,14 @@
 						<th scope="row">3</th>
 						<td>Despertar final más temprano de lo deseado.</td>
 						<td>
-							<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
+							<input type="text" name="apellidoupdate" value="<?php echo($data['pregunta3']); ?>" class="form-control" readonly> 
 						</tr>
 
 						<tr>
 							<th scope="row">4</th>
 							<td>Duración total del dormir.</td>
 							<td>
-								<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
+								<input type="text" name="apellidoupdate" value="<?php echo($data['pregunta4']); ?>" class="form-control" readonly> 
 							</td>
 						</tr>
 
@@ -227,7 +234,7 @@
 							<th scope="row">5</th>
 							<td>Calidad general del dormir (no importa cuánto tiempo durmió usted).</td>
 							<td>
-								<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
+								<input type="text" name="apellidoupdate" value="<?php echo($data['pregunta5']); ?>" class="form-control" readonly> 
 							</td>
 						</tr>
 
@@ -235,7 +242,7 @@
 							<th scope="row">6</th>
 							<td>Sensación de bienestar durante el día.</td>
 							<td>
-								<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
+								<input type="text" name="apellidoupdate" value="<<?php echo($data['pregunta6']); ?>" class="form-control" readonly> 
 							</td>
 						</tr>
 
@@ -243,7 +250,7 @@
 							<th scope="row">7</th>
 							<td>Funcionamiento (físico y mental) durante el día.</td>
 							<td>
-								<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
+								<input type="text" name="apellidoupdate" value="<?php echo($data['pregunta7']); ?>" class="form-control" readonly> 
 							</td>
 						</tr>
 
@@ -251,9 +258,10 @@
 							<th scope="row">8</th>
 							<td>Somnolencia durante el día.</td>
 							<td>
-								<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly> 
+								<input type="text" name="apellidoupdate" value="<?php echo($data['pregunta8']); ?>" class="form-control" readonly> 
 							</td>
 						</tr>
+					<?php } ?>
 					</tbody>
 				</table>
 

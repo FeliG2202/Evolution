@@ -10,7 +10,7 @@ class CuestionarioInsomioModel {
 	}
 
 	public function readValidateInsomioDB($data) {
-		$sql = "SELECT count(*) AS files FROM evolution.cuestionario_insomio WHERE cuestionario_insomio_fecha_creacion=? AND idUsuario=?";
+		$sql = "SELECT count(*) AS files FROM cuestionario_insomio WHERE cuestionario_insomio_fecha_creacion=? AND idUsuario=?";
 		try {
 			$stmt = $this->conexion->getprepare($sql);
 			$stmt->bindValue(1, $data['fecha_creacion'], PDO::PARAM_STR);
@@ -39,6 +39,28 @@ class CuestionarioInsomioModel {
 			$stmt->bindValue(11, $data['idUsuarios'], PDO::PARAM_INT);
 			return $stmt->execute();
 		} catch (PDOException $e) {
+			return false;
+		}
+	}
+
+	public function ValideteFechaInsomioDB() {
+		$sql = "SELECT cuestionario_insomio_fecha_creacion FROM cuestionario_insomio GROUP BY cuestionario_insomio_fecha_creacion ORDER BY cuestionario_insomio_fecha_creacion DESC";
+		
+		try{
+			$stmt = $this->conexion->getprepare($sql);
+			return $this->conexion->getFetch($stmt, true);
+		} catch (PDOException $e) {
+			return false;
+		}
+	}
+
+	public function readCuestionarioInsomioDB(array $data): array {
+		$sql = "SELECT * FROM cuestionario_insomio WHERE cuestionario_insomio_code=?";
+		try{
+			$stmt = $this->conexion->getprepare($sql);
+			$stmt->bindValue(1, $data['code'], PDO::PARAM_STR);
+			return $this->conexion->getFetch($stmt, false);
+		}catch (PDOException $e){
 			return false;
 		}
 	}

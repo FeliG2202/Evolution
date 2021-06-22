@@ -37,5 +37,13 @@ class CuestionarioInsomioController {
 			return !$this->cuestionarioInsomioModel->CuestionarioInsomioDB($data) ? [false, "Error, no se puedo Guardar el cuestionario."] : [true, "index.php?action=CuestionarioInsomio"];
 		}
 	}
+
+	public function ValideteFechaInsomio() {
+		return $this->cuestionarioInsomioModel->ValideteFechaInsomioDB();
+	}
+
+	public function readCuestionarioInsomio() {
+		return $this->cuestionarioInsomioModel->readCuestionarioInsomioDB(['code' => $_GET['id']]);
+	}
 	
 }
