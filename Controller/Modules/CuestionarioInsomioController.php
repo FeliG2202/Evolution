@@ -42,8 +42,6 @@ class CuestionarioInsomioController {
 		return $this->cuestionarioInsomioModel->ValideteFechaInsomioDB();
 	}
 
-	public function readCuestionarioInsomio() {
-		return $this->cuestionarioInsomioModel->readCuestionarioInsomioDB(['code' => $_GET['id']]);
-	}
+	
 	
 }

@@ -4,6 +4,7 @@
 <?php require_once("Controller/Modules/CuestionarioIpaqController.php") ?>
 <?php $cuestionarioIpaqcontroller = new CuestionarioIpaqController(); ?>
 
+<?php $dates = $cuestionarioIpaqcontroller->ValideteFechaIpaq();?>
 
 <?php $validate = $cuestionarioIpaqcontroller->readValidateIpaq(); ?>
 <?php if (!$validate) { ?>
@@ -171,14 +172,15 @@
 <?php } else { ?>
 	<div class="col-lg-10 mx-auto mt-5 mb-5 bg-white p-4 shadow-sm rounded">
 		<form>
-			<h3 class="text-center mt-3">Cuestionario Ipaq</h3>
+			<h3 class="text-center mt-3">Resultados del cuestionario ipaq</h3>
 
 			<div class="input-group mb-3 mt-4">
 				<select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-					<option selected>Choose...</option>
-					<option value="1">One</option>
-					<option value="2">Two</option>
-					<option value="3">Three</option>
+					<?php 
+					foreach($dates as $date) {
+						echo('<option>'.$date['cuestionario_ipaq_fecha_creacion'].'</option>');
+					}
+					?>
 				</select>
 
 				<div class="input-group-append">
@@ -186,72 +188,8 @@
 				</div>
 			</div>
 
-			<table class="table table-hover table-sm">
-				<thead>
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">Pregunta</th>
-						<th scope="col">Respuesta</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td class="w-75">Durante los últimos 7 días, ¿Cuántos días realizó usted actividades físicas vigorosas como levantar objetos pesados, excavar, aeróbicos, o pedalear rápido en bicicleta?</td>
-						<td class="w-25">
-							<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly>
-						</td>
-					</tr>
+			<!-- Aqui viene el resultado del cuestionario -->
 
-					<tr>
-						<th scope="row">2</th>
-						<td>¿Cuánto tiempo en total usualmente le tomó realizar actividades físicas vigorosas en uno de esos días que las realizó?</td>
-						<td>
-							<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly>
-						</td>
-					</tr>
-
-					<tr>
-						<th scope="row">3</th>
-						<td>Durante los últimos 7 días, ¿Cuántos días hizo usted actividades físicas moderadas tal como cargar objetos livianos, pedalear en bicicleta a paso regular, o jugar dobles de tenis? No incluya caminatas.</td>
-						<td>
-							<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly>
-						</td>
-					</tr>
-
-					<tr>
-						<th scope="row">4</th>
-						<td>Usualmente, ¿Cuánto tiempo dedica usted en uno de esos días haciendo actividades físicas moderadas?</td>
-						<td>
-							<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly>
-						</td>
-					</tr>
-
-					<tr>
-						<th scope="row">5</th>
-						<td>Durante los últimos 7 días, ¿Cuántos días caminó usted por al menos 10 minutos continuos?</td>
-						<td>
-							<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly>
-						</td>
-					</tr>
-
-					<tr>
-						<th scope="row">6</th>
-						<td>Usualmente, ¿Cuánto tiempo gastó usted en uno de esos días caminando?</td>
-						<td>
-							<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly>
-						</td>
-					</tr>
-
-					<tr>
-						<th scope="row">7</th>
-						<td>Durante los últimos 7 días, ¿Cuánto tiempo permaneció sentado(a) en un día en la semana?</td>
-						<td>
-							<input type="text" name="apellidoupdate" value="<?php //echo($data['usuarios_apellidos']); ?>" class="form-control" readonly>
-						</td>
-					</tr>
-				</tbody>
-			</table>          
 		</form>
 	</div>
 	<?php } ?>

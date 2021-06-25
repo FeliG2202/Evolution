@@ -37,5 +37,9 @@ class CuestionarioIpaqController {
 			return !$this->cuestionarioIpaqModel->CuestionarioIpaqDB($data) ? [false, "Error, no se puedo Guardar el cuestionario."] : [true, "index.php?action=CuestionarioIpaq"];
 		}
 	}
+
+	public function ValideteFechaIpaq() {
+		return $this->cuestionarioIpaqModel->ValideteFechaIpaqDB();
+	}
 	
 }

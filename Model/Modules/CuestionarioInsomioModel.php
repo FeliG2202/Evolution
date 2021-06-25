@@ -22,26 +22,27 @@ class CuestionarioInsomioModel {
 	}
 
 	public function CuestionarioInsomioDB($data) {
-		$sql = "INSERT INTO cuestionario_insomio (cuestionario_insomio_pregunta1, cuestionario_insomio_pregunta2, cuestionario_insomio_pregunta3, cuestionario_insomio_pregunta4, cuestionario_insomio_pregunta5, cuestionario_insomio_pregunta6, cuestionario_insomio_pregunta7, cuestionario_insomio_pregunta8, 
-			cuestionario_insomio_code, cuestionario_insomio_fecha_creacion,  idUsuario) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+		$preguntas = null;
+		for ($j = 1; $j <= 8; $j++) { 
+			$preguntas.= $j != 8 ? ("cuestionario_insomio_pregunta" . $j . ", ") : ("cuestionario_insomio_pregunta" . $j);
+		}
+		$sql = "INSERT INTO cuestionario_insomio (" . $preguntas . ", cuestionario_insomio_code, cuestionario_insomio_fecha_creacion, idUsuario) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 		try {
 			$stmt = $this->conexion->getprepare($sql);
-			$stmt->bindValue(1, $data['pregunta1'], PDO::PARAM_STR);
-			$stmt->bindValue(2, $data['pregunta2'], PDO::PARAM_STR);
-			$stmt->bindValue(3, $data['pregunta3'], PDO::PARAM_STR);
-			$stmt->bindValue(4, $data['pregunta4'], PDO::PARAM_STR);
-			$stmt->bindValue(5, $data['pregunta5'], PDO::PARAM_STR);
-			$stmt->bindValue(6, $data['pregunta6'], PDO::PARAM_STR);
-			$stmt->bindValue(7, $data['pregunta7'], PDO::PARAM_STR);
-			$stmt->bindValue(8, $data['pregunta8'], PDO::PARAM_STR);
+			for ($i = 1; $i <= 8; $i++) { 
+				$stmt->bindValue($i, $data['pregunta' . $i], PDO::PARAM_STR);
+			}
 			$stmt->bindValue(9, $data['code'], PDO::PARAM_STR);
 			$stmt->bindValue(10, $data['fecha_creacion'], PDO::PARAM_STR);
 			$stmt->bindValue(11, $data['idUsuarios'], PDO::PARAM_INT);
 			return $stmt->execute();
 		} catch (PDOException $e) {
+			echo($e);
 			return false;
 		}
 	}
+
+	
 
 	public function ValideteFechaInsomioDB() {
 		$sql = "SELECT cuestionario_insomio_fecha_creacion FROM cuestionario_insomio GROUP BY cuestionario_insomio_fecha_creacion ORDER BY cuestionario_insomio_fecha_creacion DESC";
@@ -54,15 +55,5 @@ class CuestionarioInsomioModel {
 		}
 	}
 
-	public function readCuestionarioInsomioDB(array $data): array {
-		$sql = "SELECT * FROM cuestionario_insomio WHERE cuestionario_insomio_code=?";
-		try{
-			$stmt = $this->conexion->getprepare($sql);
-			$stmt->bindValue(1, $data['code'], PDO::PARAM_STR);
-			return $this->conexion->getFetch($stmt, false);
-		}catch (PDOException $e){
-			return false;
-		}
-	}
 	
 }
