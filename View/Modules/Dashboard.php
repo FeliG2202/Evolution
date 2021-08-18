@@ -1,6 +1,3 @@
-<?php if (@!$_SESSION['user_session']) {
-	$indexController->getRequest("Home");
-} ?>
 
 <h1>Dashboard</h1>
 <h1>Id: <?php echo($_SESSION['idUsuarios']); ?></h1>

@@ -1,89 +1,144 @@
-<?php include_once("Config.php"); ?>
+<?php 
+ob_start(); 
+if(!isset($_SESSION['idRol']) > 0){
+?>
 
 <nav class="sb-sidenav accordion sb-sidenav-light border-right" id="sidenavAccordion">
     <div class="sb-sidenav-menu">
         <div class="nav">
-            <div class="sb-sidenav-menu-heading">Opciones Evolution</div>
-            <?php $i = 0; $link_sidebar = null;
+            <div class="sb-sidenav-menu-heading">
+                Opciones Evolution
+            </div>
 
-            do {
-                if ($sidebar_modulos[$i]['modulo_type'] === "link" && $sidebar_modulos[$i]['modulo_visibility'] === "SI") {
-                    if (@$_SESSION['user_session']) {
-                        if ($sidebar_modulos[$i]['modulo_status'] === "online" || $sidebar_modulos[$i]['modulo_status'] === "online/offline") {
-                            for ($x = 0; $x < count($sidebar_modulos[$i]['modulo_permissions']); $x++) { 
-                                if (@$_SESSION['idRoles'] == $sidebar_modulos[$i]['modulo_permissions'][$x]) {
-                                    echo("<a href='" . ($sidebar_modulos[$i]['modulo_link']) . "' class='nav-link'>");
-                                    echo("<div class='sb-nav-link-icon'><i class='" . ($sidebar_modulos[$i]['modulo_icon']) . "'></i></div>");
-                                    echo($sidebar_modulos[$i]['modulo_nombre']);
-                                    echo("</a>");
-                                }
-                            }
-                        }
-                    } elseif (@!$_SESSION['user_session']) {
-                        if ($sidebar_modulos[$i]['modulo_status'] === "offline" || $sidebar_modulos[$i]['modulo_status'] === "online/offline") {
-                            echo("<a href='" . ($sidebar_modulos[$i]['modulo_link']) . "' class='nav-link'>");
-                            echo("<div class='sb-nav-link-icon'><i class='" . ($sidebar_modulos[$i]['modulo_icon']) . "'></i></div>");
-                            echo($sidebar_modulos[$i]['modulo_nombre']);
-                            echo("</a>");
-                        }
-                    }
-                } elseif ($sidebar_modulos[$i]['modulo_type'] === "item" && $sidebar_modulos[$i]['modulo_visibility'] === "SI") {
-                    //Link item
-                    for ($j = 0; $j < count($sidebar_sub_modulos); $j++) {
-                        if (@$_SESSION['user_session']) {
-                            if ($sidebar_sub_modulos[$j]['idModulo'] === $sidebar_modulos[$i]['idModulo']) {
-                                for ($q = 0; $q < count($sidebar_sub_modulos[$j]['sub_modulo_permissions']); $q++) { 
-                                    if (@$_SESSION['idRoles'] == $sidebar_sub_modulos[$j]['sub_modulo_permissions'][$q]) {
-                                        $link_sidebar.= "<a href='" . ($sidebar_sub_modulos[$j]['sub_modulo_link']) . "' class='nav-link'><div class='sb-nav-link-icon'><i class='" . ($sidebar_sub_modulos[$j]['sub_modulo_icon']) . "'></i></div>" . ($sidebar_sub_modulos[$j]['sub_modulo_nombre']) . "</a>";
-                                    }
-                                }
-                            }
-                        } elseif (@!$_SESSION['user_session']) {
-                            if ($sidebar_sub_modulos[$j]['idModulo'] === $sidebar_modulos[$i]['idModulo']) {
-                                $link_sidebar.= "<a href='" . ($sidebar_sub_modulos[$j]['sub_modulo_link']) . "' class='nav-link'><div class='sb-nav-link-icon'><i class='" . ($sidebar_sub_modulos[$j]['sub_modulo_icon']) . "'></i></div>" . ($sidebar_sub_modulos[$j]['sub_modulo_nombre']) . "</a>";
-                            }
-                        }
-                    }
-
-                    //Contenedor item
-                    if (@$_SESSION['user_session']) {
-                        if ($sidebar_modulos[$i]['modulo_status'] === "online" || $sidebar_modulos[$i]['modulo_status'] === "online/offline") {
-                            for ($k = 0; $k < count($sidebar_modulos[$i]['modulo_permissions']); $k++) { 
-                                if (@$_SESSION['idRoles'] == $sidebar_modulos[$i]['modulo_permissions'][$k]) {
-                                    echo("<a href='#' class='nav-link collapsed' data-toggle='collapse' data-target='#" . (strtolower($sidebar_modulos[$i]['modulo_nombre'])) . "' aria-expanded='false' aria-controls='" . (strtolower($sidebar_modulos[$i]['modulo_nombre'])) . "'>");
-                                    echo("<div class='sb-nav-link-icon'><i class='" . ($sidebar_modulos[$i]['modulo_icon']) . "'></i></div>");
-                                    echo($sidebar_modulos[$i]['modulo_nombre']);
-                                    echo('<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>');
-                                    echo("</a>");
-
-                                    echo("<div class='collapse' id='" . (strtolower($sidebar_modulos[$i]['modulo_nombre'])) . "' aria-labelledby='headingOne' data-parent='#sidenavAccordion'>");
-                                    echo("<nav class='sb-sidenav-menu-nested nav'>" . ($link_sidebar) . "</nav>");
-                                    echo("</div>");
-                                }
-                            }
-                        }
-                    } elseif (@!$_SESSION['user_session']) {
-                        if ($sidebar_modulos[$i]['modulo_status'] === "offline" || $sidebar_modulos[$i]['modulo_status'] === "online/offline") {
-                            echo("<a href='#' class='nav-link collapsed' data-toggle='collapse' data-target='#" . (strtolower($sidebar_modulos[$i]['modulo_nombre'])) . "' aria-expanded='false' aria-controls='" . (strtolower($sidebar_modulos[$i]['modulo_nombre'])) . "'>");
-                            echo("<div class='sb-nav-link-icon'><i class='" . ($sidebar_modulos[$i]['modulo_icon']) . "'></i></div>");
-                            echo($sidebar_modulos[$i]['modulo_nombre']);
-                            echo('<div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>');
-                            echo("</a>");
-
-                            echo("<div class='collapse' id='" . (strtolower($sidebar_modulos[$i]['modulo_nombre'])) . "' aria-labelledby='headingOne' data-parent='#sidenavAccordion'>");
-                            echo("<nav class='sb-sidenav-menu-nested nav'>" . ($link_sidebar) . "</nav>");
-                            echo("</div>");
-                        }
-                    }
-
-                    $link_sidebar = null;
-                }
-                $i++;
-            } while ($i < count($sidebar_modulos)); ?>
+            <!-- Dashboard o Home --> 
+            <a class="nav-link" href="Home">
+                <div class="sb-nav-link-icon">
+                    <i class="fad fa-home fa-lg text-warning"></i>
+                </div>
+                Home
+            </a>
         </div>
     </div>
+</nav>
 
-    <div class="sb-sidenav-footer">
-        <img src="View/Assets/Img/logos/30_aventura.png" width="190" height="75" class="d-inline-block align-top">
+<?php 
+}
+else{
+$opcionesMenu = new RolesOpcionesMenuControlador();
+$opciones = $opcionesMenu->consultarRolesOpcionesMenuControlador($_SESSION['idRol']);
+
+?>
+<nav class="sb-sidenav accordion sb-sidenav-light border-right" id="sidenavAccordion">
+    <div class="sb-sidenav-menu">
+        <div class="nav">
+            <div class="sb-sidenav-menu-heading">
+                Opciones Evolution
+            </div>
+
+            <!-- Dashboard o Home --> 
+            <a class="nav-link" href="Home">
+                <div class="sb-nav-link-icon">
+                    <i class="fad fa-home fa-lg text-warning"></i>
+                </div>
+                Home
+            </a>
+
+            <?php 
+
+            foreach ($opciones as $key => $value) {
+                print '<a class="nav-link" href="'.$value['opcionesMenuEnlace'].'">
+                <div class="sb-nav-link-icon">
+                    <i class="fad fa-home fa-lg text-warning"></i>
+                </div>
+                '.$value['opcionesMenuNombre'].'
+            </a>';
+            }
+
+            ?>
+
+            <!-- Cuestionario -->
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts1">
+                <div class="sb-nav-link-icon">
+                    <i class="fad fa-folder fa-lg text-warning"></i>
+                </div>
+                Cuestionarios
+                <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </a>
+            <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="layout-static.html">Evolucion del mes</a>
+                    <a class="nav-link" href="layout-sidenav-light.html">Ejercicios diarios</a>
+                    <a class="nav-link" href="layout-sidenav-light.html">Ficha antropometrica</a>
+                </nav>
+            </div>
+
+            <!-- Test -->
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
+                <div class="sb-nav-link-icon">
+                    <i class="fad fa-folder fa-lg text-warning"></i>
+                </div>
+                Test
+                <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </a>
+            <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="EvolucionMes">Avances</a>
+                    <a class="nav-link" href="layout-sidenav-light.html">Ejercicios diarios</a>
+                    <a class="nav-link" href="layout-sidenav-light.html">Ficha antropometrica</a>
+                </nav>
+            </div>
+
+            <!-- Soporte -->
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts3">
+                <div class="sb-nav-link-icon">
+                    <i class="fad fa-universal-access fa-lg text-warning"></i>
+                </div>
+                Soporte
+                <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </a>
+            <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="Informacion">
+                        <div class="sb-nav-link-icon">
+                            <i class="fad fa-info fa-lg text-warning"></i>
+                        </div>
+                        Informacion
+                    </a>
+                    <a class="nav-link" href="Ayuda">
+                        <div class="sb-nav-link-icon">
+                            <i class="fad fa-question fa-lg text-warning"></i>
+                        </div>
+                        Ayuda
+                    </a>
+                </nav>
+            </div>
+
+            <!--  LOS MIOS ------------------->
+
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#nuevos" aria-expanded="false" aria-controls="nuevos">
+                <div class="sb-nav-link-icon">
+                    <i class="fad fa-folder fa-lg text-warning"></i>
+                </div>
+                Los nuevos items
+                <div class="sb-sidenav-collapse-arrow">
+                    <i class="fas fa-angle-down"></i>
+                </div>
+            </a>
+            <div class="collapse" id="nuevos" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="regUsuarios">Registrar Usuarios</a>
+                    <a class="nav-link" href="layout-sidenav-light.html">Ejercicios diarios</a>
+                    <a class="nav-link" href="layout-sidenav-light.html">Ficha antropometrica</a>
+                </nav>
+            </div>
+
+        </div>
     </div>
 </nav>
+<?php } ?>

@@ -1,4 +1,8 @@
 <?php 
-session_unset();
-session_destroy();
-$indexController->getRequest("Home");
+
+if ($_SESSION) {
+	session_destroy();
+	header('location:Dashboard');
+}
+
+

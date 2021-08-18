@@ -1,5 +1,9 @@
-<?php require_once("Controller/Modules/SingUpController.php") ?>
-<?php $controller = new SingUpController(); ?>
+<?php 
+
+$persona = new PersonaControlador();
+$persona->registrarPersonaControlador();
+
+ ?>
 
 <div class="col-lg-7 mx-auto mt-5 mb-5 p-4 bg-white rounded shadow-sm">
 	<div class="w-100 text-center">
@@ -9,14 +13,14 @@
 		<div class="form-row">
 			<div class="form-group col-md-6">
 				<label>Nombre</label>
-				<input type="text" name="nombresession" id="inputState" required class="form-control" placeholder="">
+				<input type="text" name="nombres" id="inputState" required class="form-control" placeholder="">
 				<div class="valid-feedback">la respuesta es correcta!</div>
 				<div class="invalid-feedback">llenar el campo!</div>
 			</div> 
 
 			<div class="form-group col-md-6">
 				<label>Apellido</label>
-				<input type="text" name="apellidosession" id="inputState" required class="form-control" placeholder="">
+				<input type="text" name="apellidos" id="inputState" required class="form-control" placeholder="">
 				<div class="valid-feedback">la respuesta es correcta!</div>
 				<div class="invalid-feedback">llenar el campo!</div>
 			</div> 
@@ -25,14 +29,14 @@
 		<div class="form-row">
 			<div class="form-group col-md-6">
 				<label>Documento de identidad</label>
-				<input type="number" name="documentosession" id="inputState" required class="form-control" placeholder="">
+				<input type="number" name="documento" id="inputState" required class="form-control" placeholder="">
 				<div class="valid-feedback">la respuesta es correcta!</div>
 				<div class="invalid-feedback">llenar el campo!</div>
 			</div> 
 
 			<div class="form-group col-md-6">
 				<label>Fecha de nacimiento</label>
-				<input type="date" name="fechanacimientosession" id="inputState" required class="form-control" placeholder="">
+				<input type="date" name="fechanacimiento" id="inputState" required class="form-control" placeholder="">
 				<div class="valid-feedback">la respuesta es correcta!</div>
 				<div class="invalid-feedback">llenar el campo!</div>
 			</div> 
@@ -41,7 +45,7 @@
 		<div class="form-row">
 			<div class="form-group col-md-6">
 				<label>Genero</label>
-				<select  name="generosession" id="inputState" required class="form-control">
+				<select  name="genero" id="inputState" required class="form-control">
 					<option value="" selected>Seleccione</option>
 					<option>Masculino</option>
 					<option>Fememnino</option>
@@ -53,7 +57,7 @@
 
 			<div class="form-group col-md-6">
 				<label>Tipo de sangre</label>
-				<select name="sangresession" id="inputState" required class="form-control">
+				<select name="tiposangre" id="inputState" required class="form-control">
 					<option value="" selected>Seleccione</option>
 					<option>O+</option>
 					<option>O-</option>
@@ -71,15 +75,15 @@
 
 		<div class="form-row">
 			<div class="form-group col-md-6">
-				<label>Altura (Cm)</label>
-				<input type="number" name="alturasession" id="inputState" required class="form-control" placeholder="">
+				<label>Estatura (Cm)</label>
+				<input type="number" name="estatura" id="inputState" required class="form-control" placeholder="">
 				<div class="valid-feedback">la respuesta es correcta!</div>
 				<div class="invalid-feedback">llenar el campo!</div>
 			</div> 
 
 			<div class="form-group col-md-6">
 				<label>Peso (Kg)</label>
-				<input type="number" name="pesosession" id="inputState" required class="form-control" placeholder="">
+				<input type="number" name="peso" id="inputState" required class="form-control" placeholder="">
 				<div class="valid-feedback">la respuesta es correcta!</div>
 				<div class="invalid-feedback">llenar el campo!</div>
 			</div> 
@@ -88,27 +92,27 @@
 		<div class="form-row">
 			<div class="form-group col-md-6">
 				<label>Correo</label>
-				<input type="email" name="correosession" id="inputState" required class="form-control" placeholder="">
+				<input type="email" name="email" id="inputState" required class="form-control" placeholder="">
 				<div class="valid-feedback">la respuesta es correcta!</div>
 				<div class="invalid-feedback">llenar el campo!</div>
 			</div> 
-			
+			<!--
 			<div class="form-group col-md-6">
 				<label>Contraseña</label>
-				<input name="contrasenasession" id="inputState" required class="form-control" type="password">
+				<input name="clave" id="inputState" required class="form-control" type="password">
 				<div class="valid-feedback">la respuesta es correcta!</div>
 				<div class="invalid-feedback">llenar el campo!</div>
-			</div> 
+			</div>--> 
 		</div>
 
 		<div class="form-group">
-			<textarea name="problemasession" id="inputState" required class="form-control" rows="3" placeholder="¿Tiene algun tipo de dificultad que le impida hacer ejercicio o algun tipo de deporte?"></textarea>
+			<textarea name="discapacidad" id="inputState" required class="form-control" rows="3" placeholder="¿Tiene algun tipo de dificultad que le impida hacer ejercicio o algun tipo de deporte?"></textarea>
 			<div class="valid-feedback">la respuesta es correcta!</div>
 			<div class="invalid-feedback">llenar el campo!</div>
 		</div>
 
 		<div class="form-group">
-			<button type="submit" class="btn btn-success btn-block">Registrarme</button>
+			<button type="submit" name="btnRegistrar" class="btn btn-success btn-block">Registrarme</button>
 		</div>
 
 		<div class="form-group"> 
@@ -117,14 +121,12 @@
 
 		<div class="mt-3">
 			<?php
-			$request = $controller->createUser();
-			if ($request != null) {
-				if ($request[0]) {
-					echo('<script type="text/javascript">window.location.href="' . ($request[1]) . '";</script>');
-				} elseif (!$request[0]) {
-					echo($request[1]);
+			if(isset($_GET['action'])){
+				print "SIENTRO AQUI ESTOY";
+				if($_GET['action'] == "OkSign"){
+					print "Persona Registrada Correctamente";
 				}
-			} 
+			}
 			?>
 		</div>         
 	</form>

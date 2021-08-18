@@ -1,7 +1,11 @@
-<?php /*foreach($controller->read($_SESSION['idUsuarios']) as $key => $dataUser) {
+<?php 
+ob_start();
+if(!isset($_SESSION)){
+  session_start();
 
-}*/ ?>
-
+}
+ ?>
+<!-- BARRA DE COLOR ANARANAJDO -->
 <nav class="sb-topnav navbar navbar-expand navbar-light bg-orange shadow-sm">
   <a class="navbar-brand text-white" href="home">
     <img src="View/Assets/Img/logos/logoEvolutionBackground.png" width="35" height="35" class="d-inline-block align-top" alt="">
@@ -14,9 +18,7 @@
 
   <!-- Navbar Search-->
   <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 w-100">
-    <?php if (@$_SESSION['user_session']) { ?>
-      <input class="form-control w-100 text-center mr-3 ml-3" type="text" value="<?php //echo($dataUser['usuarios_nombres']); ?>" readonly>
-    <?php } ?>
+    <input class="form-control w-100 text-center mr-3 ml-3" type="text" value="AQUI VA UN VALOR DE USUARIO" readonly>
   </form>
   
   <!-- Navbar-->
@@ -26,16 +28,17 @@
         <i class="fa fa-user"></i>
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <?php if (@!$_SESSION['user_session']) { ?>
+        <!-- VALIDAR SI EXISTE EL USUARIO PARA HACER LO SIGUIENTE ---->
+        <?php //if (@!$_SESSION['user_session']) { ?>
           <a class="dropdown-item" href="Login">Iniciar sesión</a>
           <a class="dropdown-item" href="SignUp">Registrarse</a>
-        <?php } ?>
+        <?php //} ?>
 
-        <?php if (@$_SESSION['user_session']) { ?> 
+        <?php // if (@$_SESSION['user_session']) { ?> 
           <a class="dropdown-item" href="Perfil">Perfil</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="Salir">Salir</a>   
-        <?php } ?>
+        <?php //} ?>
       </div>
     </li>
   </ul>
