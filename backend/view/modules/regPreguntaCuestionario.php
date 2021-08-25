@@ -16,7 +16,7 @@ $cuestionario->cargarCuestionarioControlador();
 
 ?>
 
-<div class="col-lg-10 mx-auto mt-5 mb-5 bg-white p-4 shadow-sm rounded">
+<div class="col-lg-12 mx-auto mt-5 mb-5 p-4 bg-white rounded shadow-sm">
 	<h3 class="text-center">Registrar preguntas cuestionario</h3><br>
 	<form method="POST">
 		<div class="form-row">
@@ -58,19 +58,5 @@ $cuestionario->cargarCuestionarioControlador();
 </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Registrar Pregunta</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				
-			</div>
-		</div>
-	</div>
+
 
