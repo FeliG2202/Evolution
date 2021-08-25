@@ -21,4 +21,8 @@ class PreguntaModelo extends Conexion {
 			print($e->getMessage());
 		}
 	}
+
+	/*public function createPreguntaModel() {
+		$sql = "INSERT INTO preguntas (preguntadetalle, preguntaestado, idtipocuestionario) VALUES (?,?,?)"
+	}*/
 }

@@ -11,7 +11,7 @@ $usuarioRol->cargarInicioRolControlador();
 <?php 
 if (!isset($_SESSION['idRol'])) {
 
-?>
+	?>
 	<div class="row">
 		<div class="col">
 			<h1>Home</h1>				
@@ -52,7 +52,7 @@ if (!isset($_SESSION['idRol'])) {
 			</div>
 		</div>
 	</div>
-<?php 
+	<?php 
 }
 else{
 
@@ -63,22 +63,17 @@ else{
 				<div class="w-100 text-center">
 					<img src="View/Assets/Img/logos/logoEvolutionBackground.png" class="img-fluid w-25 h-25">
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col">
-			<div class="col-lg-5 mx-auto mt-5 mb-5 p-4 bg-white rounded shadow-sm">
+				<hr>
 				<div class="w-100 text-center">
 					<?php 
-			print "<h3>Bienvenido Usuario: ".ucfirst($_SESSION['nombreUsuario']).", al Sistema de Informacion Evolution </h3>";
-			print "<p>Ahora Puede Seleccionar Una Opcion del Menu Principal</p>";
-			?>
+					print "<h3>Bienvenido Usuario: ".ucfirst($_SESSION['nombreUsuario']).", al Sistema de Informacion Evolution </h3>";
+					print "<p>Ahora Puede Seleccionar Una Opcion del Menu Principal</p>";
+					?>
 				</div>
 			</div>
 		</div>
 	</div>
-<?php 
+	<?php 
 }
 
- ?>
+?>

@@ -10,4 +10,18 @@ class PreguntaControlador {
 
 		}
 	}
+
+	/*public function createPreguntaControlador() {
+		if (
+			isset($_POST['pregunta']) && 
+			isset($_POST['estadoPregunta']) &&
+			isset($_POST['tipoCuestionario'])
+		) {
+			if(
+				!empty($_POST['pregunta']) && 
+				!empty($_POST['estadoPregunta']) &&
+				!empty($_POST['tipoCuestionario'])
+			)
+		}
+	}*/
 }

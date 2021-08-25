@@ -1,13 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	<h1>pagina index del backend</h1>
-	<h1>ESTO ES UNA PRUEBA DE BACKEND</h1>
-	<a href="otro.php">LLegar a atreo pagina</a>
-</body>
-</html>
+<?php 
+
+///INCLUIR CONTROLADORES
+require_once("controller/templateControlador.php");
+require_once("controller/personaControlador.php");
+require_once("controller/usuarioControlador.php");
+require_once("controller/usuarioRolesControlador.php");
+require_once("controller/rolesOpcionesMenuControlador.php");
+require_once("controller/tipoCuestionarioControlador.php");
+require_once("controller/cuestionarioControlador.php");
+require_once("controller/preguntaControlador.php");
+require_once("controller/respuestaControlador.php");
+
+
+
+
+///INCLUIR MODELOS
+require_once("models/validarEnlacesModelo.php");
+require_once("models/personaModelo.php");
+require_once("models/usuarioModelo.php");
+require_once("models/usuarioRolesModelo.php");
+require_once("models/rolesOpcionesMenuModelo.php");
+require_once("models/tipoCuestionarioModelo.php");
+require_once("models/preguntaModelo.php");
+require_once("models/respuestaModelo.php");
+
+
+
+
+$template = new TemplateControlador();
+$template->cargarTemplate();
