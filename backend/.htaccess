@@ -1,6 +1,0 @@
-
-Options All -Indexes
-
-RewriteEngine on
-
-RewriteRule ^(\w+)$ index.php?action=$1

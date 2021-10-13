@@ -1,57 +1,75 @@
 <?php 
-
-require_once("conexion.php");
+require_once("Conexion.php");
 
 class PersonaModelo extends Conexion {
-	private $tabla = "persona";
-
-	public function registrarPersonaModelo($datos) {
-		$sql = "INSERT INTO $this->tabla (persona_nombres, persona_apellidos, persona_documento, persona_fecha_nacimineto, persona_email, persona_genero, persona_tipo_sangre, persona_problema) VALUES (?,?,?,?,?,?,?,?)";
+	private $tabla = "personas";
+	public function registrarPersonaModelo($datosPersona) {
+		$sql = "INSERT INTO $this->tabla (personaNombres, personaApellidos, personaGenero, personaDocumento) VALUES (?,?,?,?)";
 		try {
 			$conn = new Conexion();
 			$stmt = $conn->conectar()->prepare($sql);
-			$stmt->bindParam(1, $datos['nombres'], PDO::PARAM_STR);
-			$stmt->bindParam(2, $datos['apellidos'], PDO::PARAM_STR);
-			$stmt->bindParam(3, $datos['documento'], PDO::PARAM_STR);
-			$stmt->bindParam(4, $datos['fechanacimiento'], PDO::PARAM_STR);
-			$stmt->bindParam(5, $datos['email'], PDO::PARAM_STR);
-			$stmt->bindParam(6, $datos['genero'], PDO::PARAM_STR);
-			$stmt->bindParam(7, $datos['tiposangre'], PDO::PARAM_STR);
-			$stmt->bindParam(8, $datos['discapacidad'], PDO::PARAM_STR);
-			if($stmt->execute()){
+			$stmt->bindParam(1, $datosPersona['nombre'], PDO::PARAM_STR);
+			$stmt->bindParam(2, $datosPersona['apellido'], PDO::PARAM_STR);
+			$stmt->bindParam(3, $datosPersona['genero'], PDO::PARAM_STR);
+			$stmt->bindParam(4, $datosPersona['documento'], PDO::PARAM_INT);
+			if ($stmt->execute()) {
 				return true;
 			}
 			else{
 				return false;
 			}
+			$stmt->close();
 		} catch (PDOException $e) {
-			print($e->getMessage());
+			print_r($e->getMessage());
 		}
-		$stmt->close();
 	}
 
 
-	public function consultarPersonasModelo(){
-		$sql = "SELECT idpersona, concat(persona_documento, ' - ', persona_nombres,' ', persona_apellidos) as nombre FROM $this->tabla";
+	public function consultarPersonaModelo($datoBusqueda){
+		
+		$datoBusqueda = '%'.$datoBusqueda.'%';
+
+		$sql = "SELECT * FROM $this->tabla WHERE personaNombres LIKE ? OR personaApellidos LIKE ? or personaDocumento LIKE ?";
 		try {
 			$conn = new Conexion();
 			$stmt = $conn->conectar()->prepare($sql);
+			$stmt->bindParam(1, $datoBusqueda, PDO::PARAM_STR);
+			$stmt->bindParam(2, $datoBusqueda, PDO::PARAM_STR);
+			$stmt->bindParam(3, $datoBusqueda, PDO::PARAM_STR);
+			if ($stmt->execute()) {
+				return $stmt->fetchAll();
+			}
+			else{
+				[];
+			}
+			$stmt->close();
+
+		} catch (PDOException $e) {
+			print_r($e->getMessage());
+		}
+	}
+
+
+	public function consultarPersonaIdModelo($id){
+		$sql = "SELECT * FROM $this->tabla WHERE idPersona = ?";
+		try {
+			$conn = new Conexion();
+			$stmt = $conn->conectar()->prepare($sql);
+			$stmt->bindParam(1, $id, PDO::PARAM_INT);
 			if ($stmt->execute()) {
 				return $stmt->fetchAll();
 			}
 			else{
 				return [];
 			}
+			$stmt->close();
 		} catch (PDOException $e) {
 			print($e->getMessage());
 		}
-		$stmt->close();
 	}
 
-
-
-	public function consultarPersonaIdModelo($id){
-		$sql = "SELECT * FROM $this->tabla WHERE idpersona = ?";
+	public function consultarPersonasIdModelo($id){
+		$sql = "SELECT * FROM $this->tabla WHERE idPersona = ?";
 		try {
 			$conn = new Conexion();
 			$stmt = $conn->conectar()->prepare($sql);
@@ -65,6 +83,62 @@ class PersonaModelo extends Conexion {
 			$stmt->close();
 		} catch (PDOException $e) {
 			print($e->getMessage());
+		}
+	}
+
+	////////////////////////
+
+	public function listarPersonasModelo(){
+		$sql = "SELECT * FROM $this->tabla WHERE 1";
+		try {
+			$conn = new Conexion();
+			$stmt = $conn->conectar()->prepare($sql);
+			$stmt->execute();
+			return $stmt->fetchAll();
+		} catch (PDOException $e) {
+			print_r($e->getMessage());
+		}
+	}
+
+
+	public function actualizarPersonaModelo($datosPersona){
+		$sql = "UPDATE $this->tabla SET personaNombres=?,personaApellidos=?,personaGenero=?,personaDocumento=? WHERE idPersona=?";
+		try {
+			$conn = new Conexion();
+			$stmt = $conn->conectar()->prepare($sql);
+			$stmt->bindParam(1,$datosPersona['nombre'],PDO::PARAM_STR);
+			$stmt->bindParam(2,$datosPersona['apellido'],PDO::PARAM_STR);
+			$stmt->bindParam(3,$datosPersona['genero'],PDO::PARAM_STR);
+			$stmt->bindParam(4,$datosPersona['documento'],PDO::PARAM_INT);
+			$stmt->bindParam(5,$datosPersona['id'],PDO::PARAM_INT);
+			if ($stmt->execute()) {
+				return true;
+			}
+			else{
+				return false;
+			}
+			$stmt->close();
+		} catch (PDOException $e) {
+			print_r($e->getMessage());
+		}
+	}
+
+
+	public function eliminarPersonaModelo($id){
+		$sql = "DELETE FROM $this->tabla WHERE idPersona = ?";
+		try {
+			$conn = new Conexion();
+			$stmt = $conn->conectar()->prepare($sql);
+			$stmt->bindParam(1, $id, PDO::PARAM_INT);
+			if ($stmt->execute()) {
+				return true;
+			}
+			else{
+				return false;
+			}
+			$stmt->close();
+		} catch (PDOException $e) {
+			print_r($e->getMessage());
 		}
 	}
 }

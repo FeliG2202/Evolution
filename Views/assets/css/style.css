@@ -1,0 +1,32 @@
+.disabled-object { display: none; }
+
+@media screen and (max-width: 767px) { .disabled-object-xl { display: none; } }
+@media screen and (min-width: 768px) { .disabled-object-sm { display: none; } }
+
+.img {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../Assets/Img/backgrounds/backgroundGeneral.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+
+
+.bg-yellow {
+	background-color: #0DADCD;
+}
+
+.text-blue{
+  color: #387BD5;
+}
+
+.vl{ 
+  
+    border:         none;
+    border-left:    1px solid hsla(200, 10%, 50%,100);
+    height:         100px;
+    width:          1px;       
+}
+
+
